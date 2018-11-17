@@ -1,26 +1,29 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+import deps
+
 buildscript {
-    ext.kotlin_version = '1.3.0'
     repositories {
         google()
         jcenter()
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0-beta03'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath(deps.android.gradlePlugin)
+        classpath(deps.kotlin.gradlePlugin)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC10"
+    id(deps.detekt.plugin) version "1.0.0-RC11"
 }
 
 allprojects {
-    apply from: "$rootDir/detekt.gradle"
+    apply {
+        from("$rootDir/detekt.gradle")
+    }
 
     repositories {
         google()
@@ -28,7 +31,8 @@ allprojects {
         
     }
 }
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks {
+    register("clean", Delete::class.java) {
+        delete("$rootProject.buildDir")
+    }
 }
