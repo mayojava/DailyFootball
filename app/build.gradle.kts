@@ -31,6 +31,7 @@ android {
 
 dependencies {
     implementation(project(":base"))
+    implementation(project(":data"))
 
     implementation(deps.kotlin.stdlib.jdk8)
     implementation(deps.android.google.material)

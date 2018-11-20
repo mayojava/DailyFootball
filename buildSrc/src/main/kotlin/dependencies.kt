@@ -5,6 +5,7 @@ object deps {
 
         const val constraintLayout = "1.1.3"
         const val navigation = "1.0.0-alpha07"
+        const val room = "2.1.0-alpha02"
         const val corekts = "1.0.1"
         const val material = "1.0.0"
         const val appcompat = "1.0.2"
@@ -14,6 +15,9 @@ object deps {
         const val coroutines = "1.0.1"
         const val dagger = "2.18"
         const val moshi = "1.7.0"
+        const val rxjava = "2.2.3"
+        const val rxkotlin = "2.1.0"
+        const val arrow = "0.8.1"
 
         const val junit = "4.12"
         const val runner = "1.1.0"
@@ -40,6 +44,13 @@ object deps {
             const val constraintLayout = "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}"
             const val appcompat = "androidx.appcompat:appcompat:${versions.appcompat}"
             const val corektx = "androidx.core:core-ktx:${versions.corekts}"
+            object room {
+                const val runtime = "androidx.room:room-runtime:${versions.room}"
+                const val compiler = "androidx.room:room-compiler:${versions.room}"
+                const val rxjava = "androidx.room:room-rxjava2:${versions.room}"
+                const val commons = "androidx.room:room-common:${versions.room}"
+                const val testing = "androidx.room:room-testing:${versions.room}"
+            }
         }
 
         object google {
@@ -70,6 +81,7 @@ object deps {
 
     object dagger {
         const val runtime = "com.google.dagger:dagger:${versions.dagger}"
+        const val compiler = "com.google.dagger:dagger-compiler:${versions.dagger}"
     }
 
     object square {
@@ -89,5 +101,14 @@ object deps {
     object moshi {
         const val core = "com.squareup.moshi:moshi:${versions.moshi}"
         const val compiler = "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+    }
+
+    object reactivex {
+        const val rxjava = "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+        const val rxkotlin = "io.reactivex.rxjava2:rxandroid:${versions.rxkotlin}"
+    }
+
+    object arrow {
+        const val core = "io.arrow-kt:arrow-core:${versions.arrow}"
     }
 }

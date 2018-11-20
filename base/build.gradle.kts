@@ -3,12 +3,14 @@ plugins {
 }
 
 dependencies {
-    implementation(deps.kotlin.stdlib.jdk8)
-    implementation(deps.jetbrains.coroutines.coroutines_core)
-    implementation(deps.jetbrains.coroutines.coroutines_rx)
+    api(deps.kotlin.stdlib.jdk8)
+    api(deps.jetbrains.coroutines.coroutines_core)
+    api(deps.jetbrains.coroutines.coroutines_rx)
 
-    implementation(deps.dagger.runtime)
+    api(deps.dagger.runtime)
 
-    implementation(deps.square.okhttpLogger)
-    implementation(deps.square.retrofit)
+    api(deps.square.okhttpLogger)
+    api(deps.square.retrofit)
+
+    api(deps.arrow.core)
 }
