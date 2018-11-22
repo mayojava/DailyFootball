@@ -16,7 +16,7 @@ class RetrofitRunner @Inject constructor() {
             if (response.isSuccessful) {
                 Try.just(mapper.map(response.bodyOrThrow()))
             } else {
-                Try.raise(response.toException())
+                Try.raise(Throwable(response.message()))
             }
         } catch (e: Exception) {
             Try.raise(e)
