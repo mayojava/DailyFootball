@@ -14,7 +14,7 @@ object deps {
         const val okHttp = "3.12.0"
         const val coroutines = "1.0.1"
         const val dagger = "2.18"
-        const val moshi = "1.7.0"
+        const val moshi = "1.8.0"
         const val rxjava = "2.2.3"
         const val rxkotlin = "2.1.0"
         const val arrow = "0.8.1"
@@ -88,6 +88,7 @@ object deps {
         const val okhttp = "com.squareup.okhttp3:okhttp:${versions.okHttp}"
         const val okhttpLogger = "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}"
         const val retrofit = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+        const val moshi_converter = "com.squareup.retrofit2:converter-moshi:${versions.retrofit}"
     }
 
     object test {

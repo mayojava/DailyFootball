@@ -16,6 +16,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
+        buildConfigField("String", "NEWS_API_KEY", "6a584a8e430e4e9e813f85b977d3c6b2")
+        buildConfigField("String", "FOOTBALL_DATA_TOKEN", "562dcf6e8b3f493186d1c47fc84e3404")
     }
     buildTypes {
         getByName("debug") {

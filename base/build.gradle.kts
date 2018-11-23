@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm")
+    kotlin("kapt")
 }
 
 dependencies {
@@ -13,4 +14,8 @@ dependencies {
     api(deps.square.retrofit)
 
     api(deps.arrow.core)
+
+    api(deps.moshi.core)
+    api(deps.square.moshi_converter)
+    kapt(deps.moshi.compiler)
 }
