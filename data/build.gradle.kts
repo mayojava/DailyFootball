@@ -14,6 +14,7 @@ dependencies {
     kapt(deps.dagger.compiler)
 
     implementation(deps.dagger.runtime)
+    kapt(deps.moshi.compiler)
     compile(kotlin("stdlib-jdk8"))
 }
 

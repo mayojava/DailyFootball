@@ -1,11 +1,15 @@
 package com.android.mayojava.dailyfootball.data.responseentities
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class Standings(
     val competition: Competition,
     val season: CurrentSeason,
     val standings: List<Standing>
 )
 
+@JsonClass(generateAdapter = true)
 data class Standing(
     val stage: String,
     val type: String,
@@ -13,6 +17,7 @@ data class Standing(
     val table: List<Table>
 )
 
+@JsonClass(generateAdapter = true)
 data class Table(
     val position: Int,
     val team: TableTeam,
@@ -26,6 +31,7 @@ data class Table(
     val goalDifference: Int
 )
 
+@JsonClass(generateAdapter = true)
 data class TableTeam(
     val id: Int,
     val name: String,
