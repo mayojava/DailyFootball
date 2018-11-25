@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "bbc_sports")
 data class BbcNewsEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Long,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Long = 0,
     val author: String,
     val title: String,
     val description: String,

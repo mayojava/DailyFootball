@@ -1,4 +1,44 @@
 package com.android.mayojava.dailyfootball.data.repositories.bbcsport
 
-class BbcSportNewsRepository {
+import arrow.core.Either
+import arrow.core.Try
+import arrow.core.getOrDefault
+import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
+import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
+import io.reactivex.Flowable
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
+
+class BbcSportNewsRepository @Inject constructor(
+    private val localNewsStore: BbcSportNewsLocalDataSource,
+    private val remoteBbcNewsSource: BbcSportNewsRemoteDataSource,
+    private val dispatchers: AppCoroutineDispatchers) {
+
+    fun observeNews(): Flowable<BbcNewsEntity> = localNewsStore.observeNews()
+
+    suspend fun fetchNewsUdate() {
+        val result = remoteBbcNewsSource.getLatestNews()
+        if (result.isSuccess()) {
+            withContext(dispatchers.computation) {
+                saveInDb(result)
+            }
+        }
+    }
+
+    suspend fun fetchNewsObserveResponse(): Either<Throwable, List<BbcNewsEntity>> {
+        val result = remoteBbcNewsSource.getLatestNews()
+        if (result.isSuccess()) {
+            withContext(dispatchers.computation) {
+                saveInDb(result)
+            }
+        }
+        return result.toEither()
+    }
+
+    private fun saveInDb(result: Try<List<BbcNewsEntity>>) {
+        val news = result.getOrDefault { listOf() }
+        if (news.isNotEmpty()) {
+            localNewsStore.insertNews(news)
+        }
+    }
 }
