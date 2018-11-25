@@ -17,15 +17,15 @@ open class NewsApi constructor(val apiKey: String) {
         return getRetrofit().create(NewsService::class.java)
     }
 
-    protected fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
+    protected open fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
         builder.addInterceptor(AuthInterceptor(this))
     }
 
-    protected fun moshiBuilder(): Moshi.Builder = Moshi.Builder()
+    protected open fun moshiBuilder(): Moshi.Builder = Moshi.Builder()
 
-    protected fun moshi(): Moshi = moshiBuilder().build()
+    protected open fun moshi(): Moshi = moshiBuilder().build()
 
-    protected fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
+    protected open fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
         .baseUrl(API_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi()))
         .client(okHttpClient())

@@ -7,7 +7,7 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class FootballDataApi(val token: String) {
+open class FootballDataApi(val token: String) {
     private var retrofit: Retrofit? = null
     private var okHttpClient: OkHttpClient? = null
 
@@ -17,15 +17,15 @@ class FootballDataApi(val token: String) {
         return getRetrofit().create(FootballDataService::class.java)
     }
 
-    protected fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
+    protected open fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
         builder.addInterceptor(HeaderInterceptor(this))
     }
 
-    protected fun moshiBuilder(): Moshi.Builder = Moshi.Builder()
+    protected open fun moshiBuilder(): Moshi.Builder = Moshi.Builder()
 
-    protected fun moshi(): Moshi = moshiBuilder().build()
+    protected open fun moshi(): Moshi = moshiBuilder().build()
 
-    protected fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
+    protected open fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
         .baseUrl(API_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi()))
         .client(okHttpClient())

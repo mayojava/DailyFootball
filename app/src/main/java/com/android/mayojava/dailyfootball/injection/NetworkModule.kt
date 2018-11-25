@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -22,5 +23,6 @@ class NetworkModule {
 
     @Provides
     @Singleton
+    @Named("cache-dir")
     fun providesCacheDir(application: DailyFootballApplication): File = application.cacheDir
 }
