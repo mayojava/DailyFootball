@@ -19,6 +19,7 @@ object deps {
         const val rxkotlin = "2.1.0"
         const val arrow = "0.8.1"
         const val inboxrecycler = "1.0.0-rc1"
+        const val glide = "4.8.0"
 
         const val junit = "4.12"
         const val runner = "1.1.0"
@@ -116,5 +117,9 @@ object deps {
 
     object misc {
         const val inboxrecyclerview = "me.saket:inboxrecyclerview:${versions.inboxrecycler}"
+        object glide {
+            const val glide = "com.github.bumptech.glide:glide:${versions.glide}"
+            const val processor = "com.github.bumptech.glide:compiler:${versions.glide}"
+        }
     }
 }
