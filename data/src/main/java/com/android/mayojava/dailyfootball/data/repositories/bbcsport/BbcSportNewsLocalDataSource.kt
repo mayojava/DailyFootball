@@ -9,6 +9,8 @@ class BbcSportNewsLocalDataSource @Inject constructor(private val bbcSportsDao: 
 
     fun observeNews(): Flowable<BbcNewsEntity> = bbcSportsDao.getAllNews()
 
+    fun newsList(): List<BbcNewsEntity> = bbcSportsDao.getNewsList()
+
     fun insertNews(news: List<BbcNewsEntity>) = bbcSportsDao.insert(news)
 
     fun deleteAllAndInsert(news: List<BbcNewsEntity>) = bbcSportsDao.deleteAllItemsAndInsertAll(news)

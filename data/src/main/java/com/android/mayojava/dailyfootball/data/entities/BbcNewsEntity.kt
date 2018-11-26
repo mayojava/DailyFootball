@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey
 data class BbcNewsEntity(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Long = 0,
     val author: String,
-    val title: String,
+    override val title: String,
     val description: String,
     val url: String,
     val urlToImage: String,
     val publishedAt: String,
     val content: String
-)
+): NewsDbEntity

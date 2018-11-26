@@ -5,6 +5,7 @@ import arrow.core.Try
 import arrow.core.getOrDefault
 import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
 import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
+import com.android.mayojava.dailyfootball.data.mappers.DiffUtil
 import io.reactivex.Flowable
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -20,7 +21,9 @@ class BbcSportNewsRepository @Inject constructor(
         val result = remoteBbcNewsSource.getLatestNews()
         if (result.isSuccess()) {
             withContext(dispatchers.computation) {
-                saveInDb(result)
+                val oldItems = localNewsStore.newsList()
+                val newItems = result.getOrDefault { listOf() }
+                localNewsStore.insertNews(DiffUtil.diff(oldItems, newItems))
             }
         }
     }
@@ -38,7 +41,7 @@ class BbcSportNewsRepository @Inject constructor(
     private fun saveInDb(result: Try<List<BbcNewsEntity>>) {
         val news = result.getOrDefault { listOf() }
         if (news.isNotEmpty()) {
-            localNewsStore.insertNews(news)
+            localNewsStore.deleteAllAndInsert(news)
         }
     }
 }

@@ -14,6 +14,9 @@ interface BbcSportsDao: BaseDao<BbcNewsEntity> {
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
     fun getAllNews(): Flowable<BbcNewsEntity>
 
+    @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
+    fun getNewsList(): List<BbcNewsEntity>
+
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC LIMIT 10 OFFSET :offset")
     fun getNewsPaginated(offset: Int): Flowable<BbcNewsEntity>
 
