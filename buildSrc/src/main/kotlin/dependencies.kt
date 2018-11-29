@@ -1,11 +1,12 @@
 object deps {
     object versions {
         const val kotlinVersion = "1.3.10"
-        const val gradlePluginVersion = "3.3.0-beta04"
+        const val gradlePluginVersion = "3.3.0-rc01"
 
         const val constraintLayout = "1.1.3"
         const val navigation = "1.0.0-alpha07"
         const val room = "2.1.0-alpha02"
+        const val paging = "2.1.0-beta01"
         const val corekts = "1.0.1"
         const val material = "1.0.0"
         const val appcompat = "1.0.2"
@@ -52,6 +53,10 @@ object deps {
                 const val rxjava = "androidx.room:room-rxjava2:${versions.room}"
                 const val commons = "androidx.room:room-common:${versions.room}"
                 const val testing = "androidx.room:room-testing:${versions.room}"
+            }
+            object paging {
+                const val common = "androidx.paging:paging-common-ktx:${versions.paging}"
+                const val runtime = "androidx.paging:paging-runtime-ktx:${versions.paging}"
             }
         }
 

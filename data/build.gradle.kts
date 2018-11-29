@@ -8,6 +8,7 @@ dependencies {
     implementation(project(":base"))
 
     implementation(deps.android.androidx.room.commons)
+    implementation(deps.android.androidx.paging.common)
     implementation(deps.reactivex.rxjava)
     implementation(deps.reactivex.rxkotlin)
 

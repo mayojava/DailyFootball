@@ -1,5 +1,6 @@
 package com.android.mayojava.dailyfootball.data.daos
 
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
@@ -17,8 +18,8 @@ interface BbcSportsDao: BaseDao<BbcNewsEntity> {
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
     fun getNewsList(): List<BbcNewsEntity>
 
-    @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC LIMIT 10 OFFSET :offset")
-    fun getNewsPaginated(offset: Int): Flowable<BbcNewsEntity>
+    @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
+    fun getNewsPaginated(): DataSource.Factory<Int, BbcNewsEntity>
 
     @Transaction
     fun deleteAllItemsAndInsertAll(bbcNews: List<BbcNewsEntity>) {
