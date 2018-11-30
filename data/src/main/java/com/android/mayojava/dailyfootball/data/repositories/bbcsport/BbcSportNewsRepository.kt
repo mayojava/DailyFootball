@@ -1,5 +1,6 @@
 package com.android.mayojava.dailyfootball.data.repositories.bbcsport
 
+import androidx.paging.DataSource
 import arrow.core.Either
 import arrow.core.Try
 import arrow.core.getOrDefault
@@ -16,6 +17,8 @@ class BbcSportNewsRepository @Inject constructor(
     private val dispatchers: AppCoroutineDispatchers) {
 
     fun observeNews(): Flowable<BbcNewsEntity> = localNewsStore.observeNews()
+
+    fun observeNewsForPaging(): DataSource.Factory<Int, BbcNewsEntity> = localNewsStore.observeForPagination()
 
     suspend fun fetchNewsUdate() {
         val result = remoteBbcNewsSource.getLatestNews()

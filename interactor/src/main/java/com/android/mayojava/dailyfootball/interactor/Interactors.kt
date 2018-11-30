@@ -18,5 +18,7 @@ abstract class BaseInteractor<P: Any, T>: Interactor<P> {
 
     protected abstract suspend fun execute(params: P)
 
-    protected abstract suspend fun createObservable(): Flowable<T>
+    protected abstract fun createObservable(): Flowable<T>
 }
+
+class None
