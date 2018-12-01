@@ -1,15 +1,17 @@
 apply plugin: 'kotlin'
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.10"
+    api Deps.kt.stdlib
 
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1"
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:1.0.1"
+    compile Deps.kt.coroutine.core
+    compile Deps.kt.coroutine.rx
 
-    compile "com.google.dagger:dagger:2.19"
+    compile Deps.dagger.runtime
 
-    compile "com.squareup.okhttp3:logging-interceptor:3.12.0"
-    compile "com.squareup.retrofit2:retrofit:2.5.0"
+    compile Deps.square.okhttp.logging
+    compile Deps.square.retrofit
 
-    compile "io.arrow-kt:arrow-core:0.8.1"
+    compile Deps.arrow
+    compile Deps.rx.rxjava
+    compile Deps.rx.rxkotlin
 }

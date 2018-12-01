@@ -1,7 +1,3 @@
-plugins {
-    `kotlin-dsl`
-}
-
 buildscript {
     repositories {
         jcenter()
@@ -10,4 +6,8 @@ buildscript {
 
 repositories {
     jcenter()
+}
+
+plugins {
+    `kotlin-dsl`
 }

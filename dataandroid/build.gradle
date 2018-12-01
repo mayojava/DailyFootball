@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion Versions.compileSdk
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
         versionCode  = 1
         versionName  = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -20,13 +20,16 @@ dependencies {
     implementation(project(":base"))
     implementation(project(":data"))
 
-    implementation "androidx.room:room-runtime:2.1.0-alpha02"
-    implementation "androidx.room:room-rxjava2:2.1.0-alpha02"
-    kapt "androidx.room:room-compiler:2.1.0-alpha02"
+    implementation Deps.android.androidx.room.runtime
+    implementation Deps.android.androidx.room.roomrx
+    kapt Deps.android.androidx.room.compiler
 
-    implementation "androidx.paging:paging-runtime-ktx:2.1.0-beta01"
+    implementation Deps.android.androidx.paging.runtime
 
-    kapt "com.google.dagger:dagger-compiler:2.19"
+    kapt Deps.dagger.compiler
 
-    testImplementation "junit:junit:4.12"
+    testImplementation Deps.test.junit
+    implementation project(path: ':baseandroid')
+    implementation project(path: ':data')
+    implementation project(path: ':base')
 }
