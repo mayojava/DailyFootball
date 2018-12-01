@@ -23,4 +23,7 @@ class DatabaseModule {
 
     @Provides
     fun providesBbcDao(db: FootballDatabase) = db.bbcDao()
+
+    @Provides
+    fun providesCompetitionsDao(db: FootballDatabase) = db.competitionsDao()
 }
