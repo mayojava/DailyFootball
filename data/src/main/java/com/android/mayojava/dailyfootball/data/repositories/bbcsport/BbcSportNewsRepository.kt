@@ -20,7 +20,7 @@ class BbcSportNewsRepository @Inject constructor(
 
     fun observeNewsForPaging(): DataSource.Factory<Int, BbcNewsEntity> = localNewsStore.observeForPagination()
 
-    suspend fun fetchNewsUdate() {
+    suspend fun fetchNewsUpdate() {
         val result = remoteBbcNewsSource.getLatestNews()
         if (result.isSuccess()) {
             withContext(dispatchers.computation) {

@@ -10,7 +10,7 @@ class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: 
 
     override fun dataSourceFactory(): DataSource.Factory<Int, BbcNewsEntity> = bbcSportNewsRepository.observeNewsForPaging()
 
-    override suspend fun execute(params: None) = bbcSportNewsRepository.fetchNewsUdate()
+    override suspend fun execute(params: None) = bbcSportNewsRepository.fetchNewsUpdate()
 
     override fun createObservable(): Flowable<BbcNewsEntity> {
         return bbcSportNewsRepository.observeNews()

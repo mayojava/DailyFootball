@@ -1,7 +1,7 @@
 object deps {
     object versions {
         const val kotlinVersion = "1.3.10"
-        const val gradlePluginVersion = "3.3.0-rc01"
+        const val gradlePluginVersion = "3.4.0-alpha06"
 
         const val constraintLayout = "1.1.3"
         const val navigation = "1.0.0-alpha07"
@@ -11,10 +11,10 @@ object deps {
         const val material = "1.0.0"
         const val appcompat = "1.0.2"
 
-        const val retrofit = "2.4.0"
+        const val retrofit = "2.5.0"
         const val okHttp = "3.12.0"
         const val coroutines = "1.0.1"
-        const val dagger = "2.18"
+        const val dagger = "2.19"
         const val moshi = "1.8.0"
         const val rxjava = "2.2.3"
         const val rxkotlin = "2.1.0"
