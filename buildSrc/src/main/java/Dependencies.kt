@@ -5,7 +5,7 @@ object Versions {
 
     const val kotlin = "1.3.10"
     const val coreKtx = "1.0.1"
-    const val appcompat = "1.0.2"
+    const val supportVersion = "1.0.2"
     const val constraintlayout = "1.1.3"
     const val navigation = "1.0.0-alpha07"
     const val material ="1.0.0"
@@ -20,6 +20,8 @@ object Versions {
     const val rxandroid = "2.1.0"
     const val moshi = "1.8.0"
     const val moshiConverter = "2.5.0"
+    const val inboxrecycler = "1.0.0-rc1"
+    const val glide = "4.8.0"
 
     const val junit = "4.12"
     const val espressocore = "3.1.0"
@@ -38,14 +40,18 @@ object Deps {
     val android = object {
         val androidx = object {
             val core = "androidx.core:core-ktx:${Versions.coreKtx}"
-            val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+            val appcompat = "androidx.appcompat:appcompat:${Versions.supportVersion}"
             val constraintlayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
+            val cardview = "androidx.cardview:cardview:${Versions.supportVersion}"
+            val recyclerview = "androidx.recyclerview:recyclerview:${Versions.supportVersion}"
+
             val room = object  {
                 val common = "androidx.room:room-common:${Versions.room}"
                 val compiler = "androidx.room:room-compiler:${Versions.room}"
                 val runtime = "androidx.room:room-runtime:${Versions.room}"
                 val roomrx = "androidx.room:room-rxjava2:${Versions.room}"
             }
+
             val paging = object {
                 val common = "androidx.paging:paging-common-ktx:${Versions.paging}"
                 val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
@@ -91,6 +97,14 @@ object Deps {
             val runner = "androidx.test:runner:${Versions.runner}"
         }
         val junit = "junit:junit:${Versions.junit}"
+    }
+
+    val misc = object {
+        val glide = object {
+            val runtime = "com.github.bumptech.glide:glide:${Versions.glide}"
+            val processor = "com.github.bumptech.glide:compiler:${Versions.glide}"
+        }
+        val inboxrecyclerview = "me.saket:inboxrecyclerview:${Versions.inboxrecycler}"
     }
 
     const val arrow = "io.arrow-kt:arrow-core:${Versions.arrow}"
