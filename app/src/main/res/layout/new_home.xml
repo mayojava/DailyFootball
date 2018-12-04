@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_vertical">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="@dimen/home_card_spacing_size">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="@dimen/home_card_inner_padding"
+                android:background="@null">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/home_card_size"
+                    android:layout_height="@dimen/home_card_size"
+                    app:srcCompat="@drawable/ic_news" />
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textColor="@android:color/black"
+                      android:padding="@dimen/home_card_inner_padding"
+                      android:layout_gravity="center"
+                      android:textSize="@dimen/home_card_title_font_size"
+                      android:text="@string/card_title_news"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="6dp">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="@dimen/home_card_inner_padding"
+                android:background="@null">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/home_card_size"
+                    android:layout_height="@dimen/home_card_size"
+                    app:srcCompat="@drawable/ic_trophy_with_a_star"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textColor="@android:color/black"
+                      android:padding="@dimen/home_card_inner_padding"
+                      android:layout_gravity="center"
+                      android:textSize="@dimen/home_card_title_font_size"
+                      android:text="@string/card_title_competitions"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

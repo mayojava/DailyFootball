@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_card_size">128dp</dimen>
+    <dimen name="home_card_title_font_size">20sp</dimen>
+    <dimen name="home_card_spacing_size">16dp</dimen>
+    <dimen name="home_card_inner_padding">8dp</dimen>
+</resources>
