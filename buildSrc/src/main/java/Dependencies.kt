@@ -22,6 +22,7 @@ object Versions {
     const val moshiConverter = "2.5.0"
     const val inboxrecycler = "1.0.0-rc1"
     const val glide = "4.8.0"
+    const val timber = "4.7.1"
 
     const val junit = "4.12"
     const val espressocore = "3.1.0"
@@ -105,6 +106,7 @@ object Deps {
             val processor = "com.github.bumptech.glide:compiler:${Versions.glide}"
         }
         val inboxrecyclerview = "me.saket:inboxrecyclerview:${Versions.inboxrecycler}"
+        val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     }
 
     const val arrow = "io.arrow-kt:arrow-core:${Versions.arrow}"

@@ -36,14 +36,12 @@ dependencies {
     implementation Deps.android.androidx.constraintlayout
     implementation Deps.android.arch.navigation.fragment
     implementation Deps.android.arch.navigation.ui
-
     testImplementation Deps.test.junit
-
     androidTestImplementation Deps.test.espresso.core
     androidTestImplementation Deps.test.espresso.runner
-
     implementation project(path: ':interactor')
     implementation project(path: ':base')
     implementation project(path: ':data')
     implementation project(path: ':dataandroid')
+    implementation project(':baseandroid')
 }
