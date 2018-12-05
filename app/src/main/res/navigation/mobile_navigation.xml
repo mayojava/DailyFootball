@@ -10,11 +10,18 @@
             android:name="com.android.mayojava.dailyfootball.home.HomeFragment"
             android:label="@string/home">
 
-            <!-- this should navigate to the subgraph
-            <action /> -->
+            <action
+                    android:id="@+id/navigate_to_competition_select"
+                    app:destination="@+id/competitions_home"/>
 
         </fragment>
 
-    <!-- subgraph for competitions will come here -->
+        <fragment
+            android:id="@+id/competitions_home"
+            android:name="com.android.mayojava.dailyfootball.competitions.SelectCompetitionFragment"
+            android:label="@string/choose_competition">
 
+            <!-- navigate to competitions sub graph -->
+            
+        </fragment>
 </navigation>

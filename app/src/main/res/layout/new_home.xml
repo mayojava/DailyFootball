@@ -7,6 +7,7 @@
               android:gravity="center_vertical">
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/card_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -37,6 +38,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/card_competitions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 
 
@@ -16,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.setLogo(R.drawable.ic_stadium_colored)
-
         val navController = findNavController(R.id.nav_host_fragment)
-        setupActionBarWithNavController(navController)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }
