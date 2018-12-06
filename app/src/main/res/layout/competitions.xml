@@ -43,7 +43,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/premiership"/>
 
     </androidx.cardview.widget.CardView>
@@ -73,7 +73,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/bundesliga"/>
 
     </androidx.cardview.widget.CardView>
@@ -88,7 +88,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/serie_a"/>
 
     </androidx.cardview.widget.CardView>
@@ -103,7 +103,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ligue_one"/>
 
     </androidx.cardview.widget.CardView>
@@ -118,7 +118,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/portuguese"/>
 
     </androidx.cardview.widget.CardView>
@@ -133,7 +133,7 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:src="@drawable/eredivise"/>
 
     </androidx.cardview.widget.CardView>
