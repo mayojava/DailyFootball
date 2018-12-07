@@ -1,14 +1,15 @@
-package com.android.mayojava.dailyfootball
+package com.android.mayojava.dailyfootball.home
 
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseActivity
 
 
-class MainActivity : BaseActivity() {
+class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
