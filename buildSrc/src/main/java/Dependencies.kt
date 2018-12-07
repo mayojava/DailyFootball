@@ -1,21 +1,29 @@
+object GradlePlugins {
+    const val safeArgs = "android.arch.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val androidPlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
+}
+
 object Versions {
     const val compileSdk = 28
     const val minSdk = 15
     const val targetSdk = 28
 
-    const val kotlin = "1.3.10"
+    const val kotlin = "1.3.11"
     const val coreKtx = "1.0.1"
     const val supportVersion = "1.0.2"
     const val constraintlayout = "1.1.3"
-    const val navigation = "1.0.0-alpha07"
+    const val navigation = "1.0.0-alpha08"
     const val material ="1.0.0"
     const val coroutine = "1.0.1"
     const val arrow = "0.8.1"
     const val dagger = "2.19"
     const val retrofit = "2.5.0"
     const val okHttpLogger  = "3.12.0"
-    const val room  = "2.1.0-alpha02"
-    const val paging = "2.1.0-beta01"
+    const val room  = "2.1.0-alpha03"
+    const val workManager = "1.0.0-alpha12"
+    const val lifecycle = "2.0.0"
+    const val paging = "2.1.0-rc01"
     const val rxjava = "2.2.3"
     const val rxandroid = "2.1.0"
     const val moshi = "1.8.0"
@@ -23,6 +31,8 @@ object Versions {
     const val inboxrecycler = "1.0.0-rc1"
     const val glide = "4.8.0"
     const val timber = "4.7.1"
+
+    const val androidGradlePlugin = "3.3.0-rc02"
 
     const val junit = "4.12"
     const val espressocore = "3.1.0"
@@ -51,11 +61,24 @@ object Deps {
                 val compiler = "androidx.room:room-compiler:${Versions.room}"
                 val runtime = "androidx.room:room-runtime:${Versions.room}"
                 val roomrx = "androidx.room:room-rxjava2:${Versions.room}"
+                val test = "androidx.room:room-testing:${Versions.room}"
             }
 
             val paging = object {
                 val common = "androidx.paging:paging-common-ktx:${Versions.paging}"
                 val runtime = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
+            }
+
+            val lifecycle = object {
+                val extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+                val rx = "android.arch.lifecycle:reactivestreams:${Versions.lifecycle}"
+                val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+                val test = "android.arch.core:core-testing:${Versions.lifecycle}"
+            }
+
+            val workManager = object {
+                val runtime = "android.arch.work:work-runtime-ktx:${Versions.workManager}"
+                val test = "android.arch.work:work-testing:${Versions.workManager}"
             }
         }
 
@@ -72,6 +95,11 @@ object Deps {
     val dagger = object {
         val runtime  = "com.google.dagger:dagger:${Versions.dagger}"
         val compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+        val android = object {
+            val runtime = "com.google.dagger:dagger-android:${Versions.dagger}"
+            val support_runtime = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+            val processor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
+        }
     }
 
     val square = object {

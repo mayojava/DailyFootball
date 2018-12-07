@@ -36,7 +36,23 @@ dependencies {
     implementation Deps.android.androidx.constraintlayout
     implementation Deps.android.arch.navigation.fragment
     implementation Deps.android.arch.navigation.ui
+
+    implementation Deps.android.androidx.lifecycle.extensions
+    implementation Deps.android.androidx.lifecycle.rx
+    kapt Deps.android.androidx.lifecycle.compiler
+    
+    implementation Deps.dagger.android.runtime
+    implementation Deps.dagger.android.support_runtime
+    kapt Deps.dagger.compiler
+    kapt Deps.dagger.android.processor
+
+    implementation Deps.android.androidx.workManager.runtime
+
     testImplementation Deps.test.junit
+    testImplementation Deps.android.androidx.lifecycle.test
+    testImplementation Deps.android.androidx.room.test
+    testImplementation Deps.android.androidx.workManager.test
+
     androidTestImplementation Deps.test.espresso.core
     androidTestImplementation Deps.test.espresso.runner
     implementation project(path: ':interactor')
