@@ -1,6 +1,8 @@
-package com.android.mayojava.dailyfootball.home
+package com.android.mayojava.dailyfootball.home.di
 
 import androidx.lifecycle.ViewModel
+import com.android.mayojava.dailyfootball.home.HomeActivity
+import com.android.mayojava.dailyfootball.home.HomeActivityViewModel
 import com.android.mayojava.dailyfootball.injection.ViewModelKey
 import dagger.Binds
 import dagger.Module

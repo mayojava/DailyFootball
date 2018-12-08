@@ -1,6 +1,8 @@
 package com.android.mayojava.dailyfootball
 
 import androidx.work.Worker
+import com.android.mayojava.dailyfootball.base.util.Logger
+import com.android.mayojava.dailyfootball.baseandroid.TimberLogger
 import com.android.mayojava.dailyfootball.injection.DaggerAppComponent
 import com.android.mayojava.dailyfootball.jobs.HasWorkerInjector
 import dagger.android.AndroidInjector
@@ -12,6 +14,13 @@ class DailyFootballApplication: DaggerApplication() {
 //    @Inject lateinit var workerInjector: DispatchingAndroidInjector<Worker>
 //
 //    override fun workerInjector(): AndroidInjector<Worker> = workerInjector
+
+    @Inject lateinit var logger: Logger
+
+    override fun onCreate() {
+        super.onCreate()
+        (logger as TimberLogger).setup(BuildConfig.DEBUG)
+    }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         return DaggerAppComponent.builder().create(this)

@@ -6,11 +6,11 @@ import com.android.mayojava.dailyfootball.data.repositories.bbcsport.BbcSportNew
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: BbcSportNewsRepository): PagingInteractor<BbcNewsEntity>, BaseInteractor<None, BbcNewsEntity>() {
+class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: BbcSportNewsRepository): PagingInteractor<BbcNewsEntity>, RunnableInteractor<BbcNewsEntity>() {
 
     override fun dataSourceFactory(): DataSource.Factory<Int, BbcNewsEntity> = bbcSportNewsRepository.observeNewsForPaging()
 
-    override suspend fun execute(params: None) = bbcSportNewsRepository.fetchNewsUpdate()
+    override suspend fun execute() = bbcSportNewsRepository.fetchNewsUpdate()
 
     override fun createObservable(): Flowable<BbcNewsEntity> {
         return bbcSportNewsRepository.observeNews()

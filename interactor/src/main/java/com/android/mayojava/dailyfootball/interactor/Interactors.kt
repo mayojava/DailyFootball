@@ -7,11 +7,25 @@ interface Interactor<in Param> {
     suspend operator fun invoke(params: Param)
 }
 
+interface NoParamsInteractor {
+    suspend operator fun invoke()
+}
+
 interface PagingInteractor<T> {
     fun dataSourceFactory(): DataSource.Factory<Int, T>
 }
 
-abstract class BaseInteractor<P: Any, T>: Interactor<P> {
+abstract class RunnableInteractor<T>: NoParamsInteractor {
+    override suspend fun invoke() {
+        execute()
+    }
+
+    protected abstract suspend fun execute()
+
+    abstract fun createObservable(): Flowable<T>
+}
+
+abstract class ExecutorInteractor<P: Any, T>: Interactor<P> {
     override suspend fun invoke(params: P) {
         execute(params)
     }
@@ -21,4 +35,3 @@ abstract class BaseInteractor<P: Any, T>: Interactor<P> {
     protected abstract fun createObservable(): Flowable<T>
 }
 
-class None

@@ -7,6 +7,8 @@ import androidx.work.WorkManager
 import com.android.mayojava.dailyfootball.BuildConfig
 import com.android.mayojava.dailyfootball.DailyFootballApplication
 import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
+import com.android.mayojava.dailyfootball.base.util.Logger
+import com.android.mayojava.dailyfootball.baseandroid.TimberLogger
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
@@ -44,4 +46,7 @@ class AppModule {
     @Provides
     @Named("football-data-token")
     fun providesFootballDataToken(): String = BuildConfig.FOOTBALL_DATA_TOKEN
+
+    @Provides
+    fun providesLogger(timber: TimberLogger): Logger = timber
 }
