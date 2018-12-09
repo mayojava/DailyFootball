@@ -60,7 +60,7 @@ jobs:
         destination: reports
     - store_test_results:
         path: dataandroid/build/test-results
-    run:
+    - run:
       name: Run Lint Test
       command: ./gradlew lint
       - store_artifacts:
