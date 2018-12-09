@@ -6,7 +6,8 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.reactive.openSubscription
 import javax.inject.Inject
 
-class CompetitionsInteractor @Inject constructor(private val competitionsRepository: CompetitionsRepository): RunnableInteractor<List<CompetitionsEntity>>() {
+class CompetitionsInteractor @Inject constructor(
+    private val competitionsRepository: CompetitionsRepository) : RunnableInteractor<List<CompetitionsEntity>>() {
 
     override suspend fun execute() {
         competitionsRepository.fetchCompetitions()

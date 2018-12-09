@@ -8,9 +8,11 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.reactive.openSubscription
 import javax.inject.Inject
 
-class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: BbcSportNewsRepository): PagingInteractor<BbcNewsEntity>, RunnableInteractor<BbcNewsEntity>() {
+class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: BbcSportNewsRepository)
+    : PagingInteractor<BbcNewsEntity>, RunnableInteractor<BbcNewsEntity>() {
 
-    override fun dataSourceFactory(): DataSource.Factory<Int, BbcNewsEntity> = bbcSportNewsRepository.observeNewsForPaging()
+    override fun dataSourceFactory(): DataSource.Factory<Int, BbcNewsEntity>
+            = bbcSportNewsRepository.observeNewsForPaging()
 
     override suspend fun execute() = bbcSportNewsRepository.fetchNewsUpdate()
 

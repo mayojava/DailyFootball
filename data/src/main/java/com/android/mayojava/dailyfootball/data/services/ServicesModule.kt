@@ -11,6 +11,8 @@ import javax.inject.Singleton
 
 @Module
 class ServicesModule {
+    private val cacheSize: Long = 10 * 1024 * 1024
+
     @Provides
     @Singleton
     fun providesNewsApi(logger: HttpLoggingInterceptor,
@@ -22,7 +24,7 @@ class ServicesModule {
                 super.setOkHttpClientDefaults(builder)
                 builder.apply {
                     addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "news-api-cache"), 10 * 1024 * 1024))
+                    cache(Cache(File(cacheDir, "news-api-cache"), cacheSize))
                 }
             }
         }
@@ -39,7 +41,7 @@ class ServicesModule {
                 super.setOkHttpClientDefaults(builder)
                 builder.apply {
                     addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "football-data-cache"), 10 * 1024 * 1024))
+                    cache(Cache(File(cacheDir, "football-data-cache"), cacheSize))
                 }
             }
         }

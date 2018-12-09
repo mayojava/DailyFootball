@@ -6,7 +6,8 @@ import java.lang.IllegalStateException
 import javax.inject.Inject
 import javax.inject.Provider
 
-class AppViewModelFactory @Inject constructor(private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>): ViewModelProvider.Factory {
+class AppViewModelFactory @Inject constructor(private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>,
+        Provider<ViewModel>>): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         var creator = creators[modelClass]
         if (creator == null) {

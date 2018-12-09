@@ -22,6 +22,8 @@ import javax.inject.Singleton
 
 @Module
 class AppModule {
+    private val cacheSize: Long = 10 * 1024 * 1024
+
     @Provides
     @Singleton
     fun providesContext(application: DailyFootballApplication): Context = application.applicationContext
@@ -66,7 +68,7 @@ class AppModule {
                 super.setOkHttpClientDefaults(builder)
                 builder.apply {
                     addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "football-data-cache"), 10 * 1024 * 1024))
+                    cache(Cache(File(cacheDir, "football-data-cache"), cacheSize))
                 }
             }
         }

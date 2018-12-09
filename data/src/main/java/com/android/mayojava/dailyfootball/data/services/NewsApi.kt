@@ -11,7 +11,7 @@ open class NewsApi constructor(val apiKey: String) {
     private var retrofit: Retrofit? = null
     private var okHttpClient: OkHttpClient? = null
 
-    private val API_URL = "https://newsapi.org/v2/"
+    private val baseUrl = "https://newsapi.org/v2/"
 
     fun newsApiService(): NewsService {
         return getRetrofit().create(NewsService::class.java)
@@ -26,7 +26,7 @@ open class NewsApi constructor(val apiKey: String) {
     protected open fun moshi(): Moshi = moshiBuilder().build()
 
     protected open fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
-        .baseUrl(API_URL)
+        .baseUrl(baseUrl)
         .addConverterFactory(MoshiConverterFactory.create(moshi()))
         .client(okHttpClient())
 

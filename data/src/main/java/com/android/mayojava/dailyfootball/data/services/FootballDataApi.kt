@@ -11,7 +11,7 @@ open class FootballDataApi(val token: String) {
     private var retrofit: Retrofit? = null
     private var okHttpClient: OkHttpClient? = null
 
-    private val API_URL = "http://api.football-data.org/v2/"
+    private val baseUrl = "http://api.football-data.org/v2/"
 
     fun footballDataService(): FootballDataService {
         return getRetrofit().create(FootballDataService::class.java)
@@ -27,7 +27,7 @@ open class FootballDataApi(val token: String) {
     protected open fun moshi(): Moshi = moshiBuilder().build()
 
     protected open fun retrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
-        .baseUrl(API_URL)
+        .baseUrl(baseUrl)
         .addConverterFactory(MoshiConverterFactory.create(moshi()))
         .client(okHttpClient())
 
