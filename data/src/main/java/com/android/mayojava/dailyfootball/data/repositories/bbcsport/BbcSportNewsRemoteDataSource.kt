@@ -8,8 +8,9 @@ import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
 import com.android.mayojava.dailyfootball.data.mappers.NewsToBbcSport
 import com.android.mayojava.dailyfootball.data.services.NewsApi
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class BbcSportNewsRemoteDataSource(private val retrofitRunner: RetrofitRunner,
+class BbcSportNewsRemoteDataSource @Inject constructor(private val retrofitRunner: RetrofitRunner,
                                    private val newsApi: NewsApi,
                                    private val dispatchers: AppCoroutineDispatchers): BbcSportNewsDataSource {
 

@@ -19,6 +19,7 @@ open class FootballDataApi(val token: String) {
 
     protected open fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
         builder.addInterceptor(HeaderInterceptor(this))
+        builder.addInterceptor(TierInterceptor())
     }
 
     protected open fun moshiBuilder(): Moshi.Builder = Moshi.Builder()
@@ -52,10 +53,17 @@ private class HeaderInterceptor(private val api: FootballDataApi): Interceptor {
         val request = chain.request().newBuilder()
             .addHeader("X-Auth-Token", api.token)
             .build()
-
-        val urlBuilder = request.url().newBuilder()
-        urlBuilder.addQueryParameter("plan", "TIER_ONE")
         return chain.proceed(request)
     }
+}
 
+private class TierInterceptor: Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        val originalUrl = request.url()
+        val url = originalUrl.newBuilder()
+            .addQueryParameter("plan", "TIER_ONE")
+            .build()
+        return chain.proceed(request.newBuilder().url(url).build())
+    }
 }

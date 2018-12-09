@@ -12,7 +12,7 @@ interface CompetitionsDao: BaseDao<CompetitionsEntity> {
     fun deleteAllItems()
 
     @Query("SELECT * FROM competitions")
-    fun getCompetitions(): Flowable<CompetitionsEntity>
+    fun getCompetitions(): Flowable<List<CompetitionsEntity>>
 
     @Transaction
     fun deleteAllAndInsert(items: List<CompetitionsEntity>) {

@@ -11,7 +11,7 @@ data class CompetitionsEntity(
     @Embedded val area: AreaEntity,
     val name: String,
     val code: String,
-    val emblemUrl: String,
+    val emblemUrl: String?,
     val plan: String,
     @Embedded val currentSeason: CurrentSeasonEntity,
     val numberOfAvailableSeasons: Int,
@@ -36,5 +36,5 @@ data class WinnerEntity(
     @ColumnInfo(name = "winner_name") val name: String,
     @ColumnInfo(name = "winner_short_name") val shortName: String,
     val tla: String,
-    val crestUrl: String
+    val crestUrl: String?
 )

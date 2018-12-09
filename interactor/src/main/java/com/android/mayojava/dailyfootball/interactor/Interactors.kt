@@ -2,6 +2,7 @@ package com.android.mayojava.dailyfootball.interactor
 
 import androidx.paging.DataSource
 import io.reactivex.Flowable
+import kotlinx.coroutines.channels.ReceiveChannel
 
 interface Interactor<in Param> {
     suspend operator fun invoke(params: Param)
@@ -22,7 +23,7 @@ abstract class RunnableInteractor<T>: NoParamsInteractor {
 
     protected abstract suspend fun execute()
 
-    abstract fun createObservable(): Flowable<T>
+    abstract fun observe(): ReceiveChannel<T>
 }
 
 abstract class ExecutorInteractor<P: Any, T>: Interactor<P> {
@@ -32,6 +33,6 @@ abstract class ExecutorInteractor<P: Any, T>: Interactor<P> {
 
     protected abstract suspend fun execute(params: P)
 
-    protected abstract fun createObservable(): Flowable<T>
+    abstract fun ReceiveChannel(): Flowable<T>
 }
 

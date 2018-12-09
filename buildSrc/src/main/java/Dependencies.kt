@@ -44,7 +44,7 @@ object Deps {
         val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
         val coroutine = object {
             val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
-            val rx = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
+            val rx = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.coroutine}"
         }
     }
 
@@ -73,6 +73,7 @@ object Deps {
                 val extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
                 val rx = "android.arch.lifecycle:reactivestreams:${Versions.lifecycle}"
                 val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+                val common = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
                 val test = "android.arch.core:core-testing:${Versions.lifecycle}"
             }
 

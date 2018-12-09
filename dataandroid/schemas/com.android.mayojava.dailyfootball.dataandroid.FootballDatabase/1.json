@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "37dd9330c23ed7ef3f483befef1cdee1",
+    "identityHash": "823e2167738733ba6608b6d0b8bfe80a",
     "entities": [
       {
         "tableName": "bbc_sports",
@@ -68,7 +68,7 @@
       },
       {
         "tableName": "competitions",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `emblemUrl` TEXT NOT NULL, `plan` TEXT NOT NULL, `numberOfAvailableSeasons` INTEGER NOT NULL, `lastUpdated` TEXT NOT NULL, `area_id` INTEGER NOT NULL, `area_name` TEXT NOT NULL, `season_id` INTEGER NOT NULL, `startDate` TEXT NOT NULL, `endDate` TEXT NOT NULL, `currentMatchday` INTEGER NOT NULL, `winner_id` INTEGER, `winner_name` TEXT, `winner_short_name` TEXT, `tla` TEXT, `crestUrl` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `code` TEXT NOT NULL, `emblemUrl` TEXT, `plan` TEXT NOT NULL, `numberOfAvailableSeasons` INTEGER NOT NULL, `lastUpdated` TEXT NOT NULL, `area_id` INTEGER NOT NULL, `area_name` TEXT NOT NULL, `season_id` INTEGER NOT NULL, `startDate` TEXT NOT NULL, `endDate` TEXT NOT NULL, `currentMatchday` INTEGER NOT NULL, `winner_id` INTEGER, `winner_name` TEXT, `winner_short_name` TEXT, `tla` TEXT, `crestUrl` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -92,7 +92,7 @@
             "fieldPath": "emblemUrl",
             "columnName": "emblemUrl",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "plan",
@@ -192,7 +192,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"37dd9330c23ed7ef3f483befef1cdee1\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"823e2167738733ba6608b6d0b8bfe80a\")"
     ]
   }
 }

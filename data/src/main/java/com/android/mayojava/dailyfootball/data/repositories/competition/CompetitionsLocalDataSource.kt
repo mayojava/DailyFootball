@@ -5,9 +5,9 @@ import com.android.mayojava.dailyfootball.data.entities.CompetitionsEntity
 import io.reactivex.Flowable
 import javax.inject.Inject
 
-class ComptetionsLocalDataSource @Inject constructor(private val competitionsDao: CompetitionsDao) {
+class CompetitionsLocalDataSource @Inject constructor(private val competitionsDao: CompetitionsDao) {
 
-    fun observeCompetitions(): Flowable<CompetitionsEntity> = competitionsDao.getCompetitions()
+    fun observeCompetitions(): Flowable<List<CompetitionsEntity>> = competitionsDao.getCompetitions()
 
     fun insert(competitions: List<CompetitionsEntity>) = competitionsDao.deleteAllAndInsert(competitions)
 }

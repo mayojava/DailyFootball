@@ -4,6 +4,8 @@ import androidx.paging.DataSource
 import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
 import com.android.mayojava.dailyfootball.data.repositories.bbcsport.BbcSportNewsRepository
 import io.reactivex.Flowable
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.reactive.openSubscription
 import javax.inject.Inject
 
 class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: BbcSportNewsRepository): PagingInteractor<BbcNewsEntity>, RunnableInteractor<BbcNewsEntity>() {
@@ -12,7 +14,7 @@ class BbcNewsInteractor @Inject constructor(private val bbcSportNewsRepository: 
 
     override suspend fun execute() = bbcSportNewsRepository.fetchNewsUpdate()
 
-    override fun createObservable(): Flowable<BbcNewsEntity> {
-        return bbcSportNewsRepository.observeNews()
+    override fun observe(): ReceiveChannel<BbcNewsEntity> {
+        return bbcSportNewsRepository.observeNews().openSubscription()
     }
 }

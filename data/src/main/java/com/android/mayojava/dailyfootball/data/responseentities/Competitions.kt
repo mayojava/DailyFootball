@@ -18,7 +18,7 @@ data class Competition(
     val area: Area,
     val name: String,
     val code: String,
-    val emblemUrl: String = "",
+    val emblemUrl: String? = "",
     val plan: String,
     val currentSeason: CurrentSeason = CurrentSeason(0, "", "", 0),
     val numberOfAvailableSeasons: Int = 0,
@@ -40,7 +40,7 @@ data class Winner(
     val name: String,
     val shortName: String,
     val tla: String,
-    val crestUrl: String
+    val crestUrl: String?
 )
 
 @JsonClass(generateAdapter = true)

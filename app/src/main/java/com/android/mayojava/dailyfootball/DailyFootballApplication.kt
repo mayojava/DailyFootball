@@ -15,11 +15,8 @@ class DailyFootballApplication: DaggerApplication() {
 //
 //    override fun workerInjector(): AndroidInjector<Worker> = workerInjector
 
-    @Inject lateinit var logger: Logger
-
     override fun onCreate() {
         super.onCreate()
-        (logger as TimberLogger).setup(BuildConfig.DEBUG)
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {

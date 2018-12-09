@@ -59,5 +59,5 @@ dependencies {
     implementation project(path: ':base')
     implementation project(path: ':data')
     implementation project(path: ':dataandroid')
-    implementation project(':baseandroid')
+    implementation project(path: ':baseandroid')
 }
