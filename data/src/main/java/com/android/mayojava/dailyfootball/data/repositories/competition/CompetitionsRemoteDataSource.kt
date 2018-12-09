@@ -16,16 +16,10 @@ class CompetitionsRemoteDataSource @Inject constructor(
     private val dispatchers: AppCoroutineDispatchers): CompetitionsDataSource {
 
     override suspend fun getCompetitions(): Try<List<CompetitionsEntity>> {
-        val d = withContext(dispatchers.io) {
+        return withContext(dispatchers.io) {
             retrofitRunner.executeForResponse(CompetitionsToDbEntity) {
                 footballDataApi.footballDataService().competitions().await()
             }
         }
-
-        val f = 2
-        val h = 2
-        val res = f+h
-
-        return d
     }
 }

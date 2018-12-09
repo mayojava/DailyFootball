@@ -1,0 +1,68 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/code
+    docker:
+    - image: circleci/android:api-25-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+    - checkout
+    - restore_cache:
+        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+    #      - run:
+    #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
+    #         command: sudo chmod +x ./gradlew
+    - run:
+        name: Download Dependencies
+        command: ./gradlew androidDependencies
+    - save_cache:
+        paths:
+        - ~/.gradle
+        key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+    - run:
+        name: Run App Module unit test
+        command: ./gradlew :app:testDebugUnitTest
+    - store_artifacts:
+        path: app/build/reports
+        destination: reports
+    - store_test_results:
+        path: app/build/test-results
+    - run:
+        name: Run base module unit test
+        command: ./gradlew :base:test
+    - store_artifacts:
+        path: base/build/reports
+        destination: reports
+    - store_test_results:
+        path: base/build/test-results
+    - run:
+        name: Run data module unit test
+        command: ./gradlew :data:test
+    - store_artifacts:
+        path: data/build/reports
+        destination: reports
+    - store_test_results:
+        path: data/build/test-results
+    - run:
+        name: Run interactor module unit test
+        command: ./gradlew :interactor:test
+    - store_artifacts:
+        path: interactor/build/reports
+        destination: reports
+    - store_test_results:
+        path: interactor/build/test-results
+    - run:
+        name: Run data-android module unit test
+        command: ./gradlew :dataandroid:test
+    - store_artifacts:
+        path: dataandroid/build/reports
+        destination: reports
+    - store_test_results:
+        path: dataandroid/build/test-results
+    run:
+      name: Run Lint Test
+      command: ./gradlew lint
+      - store_artifacts:
+          path: presentation/build/reports
+    # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
