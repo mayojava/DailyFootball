@@ -60,9 +60,4 @@ jobs:
         destination: reports
     - store_test_results:
         path: dataandroid/build/test-results
-    - run:
-      name: Run Lint Test
-      command: ./gradlew lint
-      - store_artifacts:
-          path: presentation/build/reports
     # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
