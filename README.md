@@ -1,6 +1,4 @@
-[![CircleCI](https://circleci.com/gh/mayojava/DailyFootball.svg?style=svg)](https://circleci.com/gh/mayojava/DailyFootball)
-
-# DailyFootball
+# DailyFootball [![CircleCI](https://circleci.com/gh/mayojava/DailyFootball.svg?style=svg)](https://circleci.com/gh/mayojava/DailyFootball)
 Football news App created to show the usage new android app development tools.
 
 ## Architecture
