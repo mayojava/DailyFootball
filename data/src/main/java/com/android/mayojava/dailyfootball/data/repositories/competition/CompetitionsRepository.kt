@@ -13,6 +13,8 @@ class CompetitionsRepository @Inject constructor(
 
     fun observeCompetitions(): Flowable<List<CompetitionsEntity>> = localDataSource.observeCompetitions()
 
+    suspend fun getCompetitionsList(): List<CompetitionsEntity> =  localDataSource.getList()
+
     suspend fun fetchCompetitions() {
         val result = remoteDataSource.getCompetitions()
         if (result.isSuccess()) {

@@ -9,5 +9,7 @@ class CompetitionsLocalDataSource @Inject constructor(private val competitionsDa
 
     fun observeCompetitions(): Flowable<List<CompetitionsEntity>> = competitionsDao.getCompetitions()
 
-    fun insert(competitions: List<CompetitionsEntity>) = competitionsDao.deleteAllAndInsert(competitions)
+    suspend fun insert(competitions: List<CompetitionsEntity>) = competitionsDao.deleteAllAndInsert(competitions)
+
+    suspend fun getList(): List<CompetitionsEntity> = competitionsDao.getCompetitionsList()
 }

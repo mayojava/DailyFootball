@@ -14,8 +14,11 @@ interface CompetitionsDao: BaseDao<CompetitionsEntity> {
     @Query("SELECT * FROM competitions")
     fun getCompetitions(): Flowable<List<CompetitionsEntity>>
 
+    @Query("SELECT * FROM competitions")
+    suspend fun getCompetitionsList(): List<CompetitionsEntity>
+
     @Transaction
-    fun deleteAllAndInsert(items: List<CompetitionsEntity>) {
+    suspend fun deleteAllAndInsert(items: List<CompetitionsEntity>) {
         deleteAllItems()
         insert(items)
     }

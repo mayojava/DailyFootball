@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation Deps.android.androidx.room.runtime
     implementation Deps.android.androidx.room.roomrx
+    implementation Deps.android.androidx.room.coroutine
     kapt Deps.android.androidx.room.compiler
 
     implementation Deps.android.androidx.paging.runtime

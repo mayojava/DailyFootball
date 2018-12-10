@@ -62,6 +62,7 @@ object Deps {
                 val runtime = "androidx.room:room-runtime:${Versions.room}"
                 val roomrx = "androidx.room:room-rxjava2:${Versions.room}"
                 val test = "androidx.room:room-testing:${Versions.room}"
+                val coroutine = "androidx.room:room-coroutines:${Versions.room}"
             }
 
             val paging = object {

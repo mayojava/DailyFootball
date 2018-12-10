@@ -16,4 +16,8 @@ class CompetitionsInteractor @Inject constructor(
     override fun observe(): ReceiveChannel<List<CompetitionsEntity>> {
         return competitionsRepository.observeCompetitions().openSubscription()
     }
+
+    suspend fun getList(): List<CompetitionsEntity> {
+        return competitionsRepository.getCompetitionsList()
+    }
 }

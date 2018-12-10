@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation Deps.kt.stdlib
     implementation Deps.android.androidx.room.common
+    implementation Deps.android.androidx.room.coroutine
     compile Deps.android.androidx.paging.common
 
     compile Deps.moshi.retrofitConverter
