@@ -48,6 +48,9 @@ dependencies {
 
     implementation Deps.android.androidx.workManager.runtime
 
+    implementation Deps.misc.glide.runtime
+    kapt Deps.misc.glide.processor
+
     testImplementation Deps.test.junit
     testImplementation Deps.android.androidx.lifecycle.test
     testImplementation Deps.android.androidx.room.test

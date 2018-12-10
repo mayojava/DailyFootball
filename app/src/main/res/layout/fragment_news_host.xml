@@ -9,6 +9,9 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:id="@+id/news_sliding_tab"
+			android:minHeight="?actionBarSize"
+			app:tabGravity="fill"
+			app:tabIndicatorHeight="4dp"
 			app:tabMode="scrollable"/>
 	
 	<androidx.viewpager.widget.ViewPager

@@ -9,9 +9,9 @@ data class BbcNewsEntity(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Long = 0,
     val author: String,
     override val title: String,
-    val description: String,
-    val url: String,
-    val urlToImage: String,
-    val publishedAt: String,
-    val content: String
+    override val description: String,
+    override val url: String,
+    override val urlToImage: String,
+    override val publishedAt: String,
+    override val content: String
 ): NewsDbEntity

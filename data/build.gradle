@@ -6,10 +6,10 @@ dependencies {
     implementation Deps.kt.stdlib
     implementation Deps.android.androidx.room.common
     implementation Deps.android.androidx.room.coroutine
-    compile Deps.android.androidx.paging.common
+    api Deps.android.androidx.paging.common
 
-    compile Deps.moshi.retrofitConverter
-    compile Deps.moshi.runtime
+    api Deps.moshi.retrofitConverter
+    implementation Deps.moshi.runtime
     kapt Deps.moshi.compiler
     implementation project(path: ':base')
 

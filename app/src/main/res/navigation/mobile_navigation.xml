@@ -13,9 +13,19 @@
             <action
                     android:id="@+id/navigate_to_competition_select"
                     app:destination="@+id/competitions_home"/>
+            
+            <action android:id="@+id/navigate_to_headlines"
+                    app:destination="@+id/news_headline_host"/>
 
         </fragment>
+    
+        <!-- news fragment -->
+        <fragment
+            android:id="@+id/news_headline_host"
+            android:name="com.android.mayojava.dailyfootball.news.NewsHostFragment"
+            android:label="@string/headlines" />
 
+        <!-- competitions fragment -->
         <fragment
             android:id="@+id/competitions_home"
             android:name="com.android.mayojava.dailyfootball.competitions.SelectCompetitionFragment"

@@ -5,4 +5,5 @@
     <string name="card_title_news">News</string>
     <string name="card_title_competitions">Competitions</string>
     <string name="choose_competition">Choose Competition</string>
+	<string name="headlines">Headlines</string>
 </resources>

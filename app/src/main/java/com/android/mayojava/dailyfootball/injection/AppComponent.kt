@@ -1,6 +1,7 @@
 package com.android.mayojava.dailyfootball.injection
 
 import com.android.mayojava.dailyfootball.DailyFootballApplication
+import com.android.mayojava.dailyfootball.data.services.ServicesModule
 import com.android.mayojava.dailyfootball.dataandroid.DatabaseModule
 import com.android.mayojava.dailyfootball.home.di.HomeActivityModule
 import dagger.Component
