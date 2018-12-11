@@ -42,6 +42,7 @@ dependencies {
     androidTestImplementation Deps.test.support.ext
     androidTestImplementation Deps.test.support.rules
     androidTestImplementation Deps.test.truth
+    androidTestImplementation Deps.android.androidx.lifecycle.test
 
     implementation project(path: ':baseandroid')
     implementation project(path: ':data')
