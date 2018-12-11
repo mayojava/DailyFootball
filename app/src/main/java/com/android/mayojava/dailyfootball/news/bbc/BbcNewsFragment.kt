@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseFragment
 import com.android.mayojava.dailyfootball.injection.AppViewModelFactory
@@ -27,8 +27,7 @@ class BbcNewsFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        bbc_news_recycler.layoutManager = layoutManager
+        bbc_news_recycler.layoutManager = LinearLayoutManager(context)
         bbc_news_recycler.adapter = adapter
     }
 

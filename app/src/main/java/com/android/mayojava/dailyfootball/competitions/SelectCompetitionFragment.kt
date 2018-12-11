@@ -33,12 +33,12 @@ class SelectCompetitionFragment: BaseFragment() {
 
     private fun list() {
         image_premier_league.setOnClickListener {
-            val comp = adapter.first { model -> model.id == 2001 }
+            val comp = adapter.first { model -> model.id == 2021}
             Toast.makeText(context, comp.name, Toast.LENGTH_LONG).show()
         }
 
         image_champions_league.setOnClickListener {
-            val comp = adapter.first { model -> model.id == 2021 }
+            val comp = adapter.first { model -> model.id == 2001 }
             Toast.makeText(context, comp.name, Toast.LENGTH_LONG).show()
         }
     }

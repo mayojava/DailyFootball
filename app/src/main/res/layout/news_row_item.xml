@@ -24,9 +24,11 @@
 		          android:id="@+id/news_item_title"
 		          android:layout_marginLeft="16dp"
 		          android:layout_marginRight="16dp"
-		          android:textSize="20sp"
+		          android:textSize="18sp"
 		          android:textStyle="bold"
-		          android:padding="6dp"
+		          android:paddingTop="6dp"
+		          android:paddingBottom="6dp"
+		          app:fontFamily="@font/opensans"
 		          tools:text="Okocha Dazzles Manchester United"/>
 		
 		<TextView
@@ -36,7 +38,7 @@
 				android:layout_marginLeft="16dp"
 				android:layout_marginRight="16dp"
 				tools:text="This is a sample of the news item description"
-				android:textSize="18sp"/>
+				android:textSize="16sp"/>
 	
 	</LinearLayout>
 </androidx.cardview.widget.CardView>

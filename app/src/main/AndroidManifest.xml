@@ -13,6 +13,9 @@
             android:name=".DailyFootballApplication"
             android:usesCleartextTraffic="true"
             android:theme="@style/AppTheme">
+        
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_font" />
+        
         <activity android:name=".home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
