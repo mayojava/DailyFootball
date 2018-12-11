@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class BbcSportNewsLocalDataSource @Inject constructor(private val bbcSportsDao: BbcSportsDao) {
 
-    fun observeNews(): Flowable<BbcNewsEntity> = bbcSportsDao.getAllNews()
+    fun observeNews(): Flowable<List<BbcNewsEntity>> = bbcSportsDao.getAllNews()
 
     fun observeForPagination(): DataSource.Factory<Int, BbcNewsEntity> = bbcSportsDao.getNewsPaginated()
 

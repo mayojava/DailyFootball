@@ -13,7 +13,7 @@ interface BbcSportsDao: BaseDao<BbcNewsEntity> {
     fun deleteAllItems()
 
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
-    fun getAllNews(): Flowable<BbcNewsEntity>
+    fun getAllNews(): Flowable<List<BbcNewsEntity>>
 
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
     fun getNewsList(): List<BbcNewsEntity>

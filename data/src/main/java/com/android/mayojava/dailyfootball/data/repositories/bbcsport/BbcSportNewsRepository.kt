@@ -16,7 +16,7 @@ class BbcSportNewsRepository @Inject constructor(
     private val remoteBbcNewsSource: BbcSportNewsRemoteDataSource,
     private val dispatchers: AppCoroutineDispatchers) {
 
-    fun observeNews(): Flowable<BbcNewsEntity> = localNewsStore.observeNews()
+    fun observeNews(): Flowable<List<BbcNewsEntity>> = localNewsStore.observeNews()
 
     fun observeNewsForPaging(): DataSource.Factory<Int, BbcNewsEntity> = localNewsStore.observeForPagination()
 

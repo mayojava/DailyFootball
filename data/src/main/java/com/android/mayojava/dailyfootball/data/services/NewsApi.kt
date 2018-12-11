@@ -52,8 +52,10 @@ private class AuthInterceptor(private val newsApi: NewsApi): Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val urlBuilder = request.url().newBuilder()
-        urlBuilder.setQueryParameter("apiKey", newsApi.apiKey)
-        return chain.proceed(request)
+            .addQueryParameter("apiKey", newsApi.apiKey)
+            .build()
+
+        return chain.proceed(request.newBuilder().url(urlBuilder).build())
     }
 
 }

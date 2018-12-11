@@ -27,6 +27,10 @@ class HomeFragment: BaseFragment() {
         card_competitions.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.navigateToCompetitionSelect())
         }
+
+        card_news.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.navigateToHeadlines())
+        }
     }
 
     override fun onAttach(context: Context?) {

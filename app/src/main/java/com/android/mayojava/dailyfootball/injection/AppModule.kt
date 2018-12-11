@@ -10,6 +10,7 @@ import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
 import com.android.mayojava.dailyfootball.base.util.Logger
 import com.android.mayojava.dailyfootball.baseandroid.TimberLogger
 import com.android.mayojava.dailyfootball.data.services.FootballDataApi
+import com.android.mayojava.dailyfootball.data.services.NewsApi
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
@@ -69,6 +70,23 @@ class AppModule {
                 builder.apply {
                     addInterceptor(logger)
                     cache(Cache(File(cacheDir, "football-data-cache"), cacheSize))
+                }
+            }
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun providesNewsApi(logger: HttpLoggingInterceptor,
+                        @Named("cache-dir") cacheDir: File,
+                        @Named("news-api-key") apiKey: String): NewsApi {
+
+        return object: NewsApi(apiKey) {
+            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
+                super.setOkHttpClientDefaults(builder)
+                builder.apply {
+                    addInterceptor(logger)
+                    cache(Cache(File(cacheDir, "news-api-cache"), cacheSize))
                 }
             }
         }
