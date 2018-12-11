@@ -26,6 +26,7 @@ dependencies {
     implementation Deps.android.androidx.room.runtime
     implementation Deps.android.androidx.room.roomrx
     implementation Deps.android.androidx.room.coroutine
+
     kapt Deps.android.androidx.room.compiler
 
     implementation Deps.android.androidx.paging.runtime
@@ -33,6 +34,15 @@ dependencies {
     kapt Deps.dagger.compiler
 
     testImplementation Deps.test.junit
+    testImplementation Deps.test.truth
+
+    androidTestImplementation Deps.android.androidx.room.test
+    androidTestImplementation Deps.test.junit
+    androidTestImplementation Deps.test.support.runner
+    androidTestImplementation Deps.test.support.ext
+    androidTestImplementation Deps.test.support.rules
+    androidTestImplementation Deps.test.truth
+
     implementation project(path: ':baseandroid')
     implementation project(path: ':data')
     implementation project(path: ':base')

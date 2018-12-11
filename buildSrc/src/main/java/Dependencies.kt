@@ -37,6 +37,7 @@ object Versions {
     const val junit = "4.12"
     const val espressocore = "3.1.0"
     const val runner = "1.1.0"
+    const val truth = "0.42"
 }
 
 object Deps {
@@ -75,7 +76,7 @@ object Deps {
                 val rx = "android.arch.lifecycle:reactivestreams:${Versions.lifecycle}"
                 val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
                 val common = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
-                val test = "android.arch.core:core-testing:${Versions.lifecycle}"
+                val test = "androidx.arch.core:core-testing:${Versions.lifecycle}"
             }
 
             val workManager = object {
@@ -88,6 +89,7 @@ object Deps {
             val navigation = object {
                 val fragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
                 val ui = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
+                val testing = "android.arch.navigation:navigation-testing:$Versions.navigation"
             }
         }
 
@@ -125,9 +127,14 @@ object Deps {
     val test = object {
         val espresso = object {
             val core = "androidx.test.espresso:espresso-core:${Versions.espressocore}"
+        }
+        val support = object {
             val runner = "androidx.test:runner:${Versions.runner}"
+            val rules = "androidx.test:rules:${Versions.runner}"
+            val ext = "androidx.test.ext:junit:1.0.0"
         }
         val junit = "junit:junit:${Versions.junit}"
+        val truth = "com.google.truth:truth:${Versions.truth}"
     }
 
     val misc = object {
