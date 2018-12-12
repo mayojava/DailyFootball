@@ -7,9 +7,9 @@ buildscript {
         
     }
     dependencies {
-        classpath GradlePlugins.androidPlugin
-        classpath GradlePlugins.safeArgs
-        classpath GradlePlugins.kotlin
+        classpath (deps.gradle.plugins.androidPlugin)
+        classpath (deps.gradle.plugins.safeArgs)
+        classpath (deps.gradle.plugins.kotlin)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,7 +17,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC11"
+    id ("io.gitlab.arturbosch.detekt") version "1.0.0-RC11"
 }
 
 allprojects {
@@ -32,6 +32,8 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks {
+    val clean by registering(Delete::class) {
+        delete(buildDir)
+    }
 }
