@@ -14,7 +14,7 @@ data class Article(
     val url: String,
     val urlToImage: String,
     val publishedAt: String,
-    val content: String)
+    val content: String?)
 
 @JsonClass(generateAdapter = true)
 data class News(val status: String, val totalResults: Int, val articles: List<Article>)

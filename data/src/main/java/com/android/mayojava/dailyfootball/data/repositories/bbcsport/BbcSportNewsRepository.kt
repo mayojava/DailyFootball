@@ -5,6 +5,7 @@ import arrow.core.Either
 import arrow.core.Try
 import arrow.core.getOrDefault
 import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
+import com.android.mayojava.dailyfootball.base.util.Logger
 import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
 import com.android.mayojava.dailyfootball.data.mappers.DiffUtil
 import io.reactivex.Flowable
@@ -14,7 +15,8 @@ import javax.inject.Inject
 class BbcSportNewsRepository @Inject constructor(
     private val localNewsStore: BbcSportNewsLocalDataSource,
     private val remoteBbcNewsSource: BbcSportNewsRemoteDataSource,
-    private val dispatchers: AppCoroutineDispatchers) {
+    private val dispatchers: AppCoroutineDispatchers,
+    private val logger: Logger) {
 
     fun observeNews(): Flowable<List<BbcNewsEntity>> = localNewsStore.observeNews()
 
@@ -26,8 +28,11 @@ class BbcSportNewsRepository @Inject constructor(
             withContext(dispatchers.computation) {
                 val oldItems = localNewsStore.newsList()
                 val newItems = result.getOrDefault { listOf() }
-                localNewsStore.insertNews(DiffUtil.diff(oldItems, newItems))
+                val diff = DiffUtil.diff(oldItems, newItems)
+                localNewsStore.insertNews(diff)
             }
+        } else {
+            result.fold({ error -> logger.e(error)}, {})
         }
     }
 
