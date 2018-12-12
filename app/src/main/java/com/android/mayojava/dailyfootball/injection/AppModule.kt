@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import androidx.work.WorkManager
 import com.android.mayojava.dailyfootball.BuildConfig
+import com.android.mayojava.dailyfootball.Constants
 import com.android.mayojava.dailyfootball.DailyFootballApplication
 import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
 import com.android.mayojava.dailyfootball.base.util.Logger
@@ -23,7 +24,6 @@ import javax.inject.Singleton
 
 @Module
 class AppModule {
-    private val cacheSize: Long = 10 * 1024 * 1024
 
     @Provides
     @Singleton
@@ -69,7 +69,7 @@ class AppModule {
                 super.setOkHttpClientDefaults(builder)
                 builder.apply {
                     addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "football-data-cache"), cacheSize))
+                    cache(Cache(File(cacheDir, "football-data-cache"), Constants.CACHE_SIZE))
                 }
             }
         }
@@ -86,7 +86,7 @@ class AppModule {
                 super.setOkHttpClientDefaults(builder)
                 builder.apply {
                     addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "news-api-cache"), cacheSize))
+                    cache(Cache(File(cacheDir, "news-api-cache"), Constants.CACHE_SIZE))
                 }
             }
         }

@@ -7,7 +7,8 @@ import com.android.mayojava.dailyfootball.interactor.CompetitionsInteractor
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SelectCompetitionViewModel @Inject constructor(private val competitionsInteractor: CompetitionsInteractor): BaseViewModel() {
+class SelectCompetitionViewModel @Inject constructor(
+    private val competitionsInteractor: CompetitionsInteractor): BaseViewModel() {
 
     private val _competitions: MutableLiveData<List<CompetitionsUIModel>> = MutableLiveData()
     val competitions: LiveData<List<CompetitionsUIModel>>

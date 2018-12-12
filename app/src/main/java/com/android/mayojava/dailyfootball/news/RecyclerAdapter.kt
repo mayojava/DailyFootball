@@ -8,7 +8,8 @@ import com.android.mayojava.dailyfootball.GlideApp
 import com.android.mayojava.dailyfootball.R
 import kotlinx.android.synthetic.main.news_row_item.view.*
 
-class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = mutableListOf()): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = mutableListOf()):
+    RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.news_row_item, parent, false))

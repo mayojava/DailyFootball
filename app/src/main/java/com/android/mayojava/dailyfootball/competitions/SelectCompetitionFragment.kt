@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.android.mayojava.dailyfootball.Constants
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseFragment
 import com.android.mayojava.dailyfootball.injection.AppViewModelFactory
@@ -33,12 +34,12 @@ class SelectCompetitionFragment: BaseFragment() {
 
     private fun list() {
         image_premier_league.setOnClickListener {
-            val comp = adapter.first { model -> model.id == 2021}
+            val comp = adapter.first { model -> model.id == Constants.PREMIER_LEAGUE_ID }
             Toast.makeText(context, comp.name, Toast.LENGTH_LONG).show()
         }
 
         image_champions_league.setOnClickListener {
-            val comp = adapter.first { model -> model.id == 2001 }
+            val comp = adapter.first { model -> model.id == Constants.CHAMPIONS_LEAGUE_ID }
             Toast.makeText(context, comp.name, Toast.LENGTH_LONG).show()
         }
     }
