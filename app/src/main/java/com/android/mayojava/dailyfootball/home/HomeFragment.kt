@@ -24,6 +24,9 @@ class HomeFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupToolbar(toolbar)
+        setupNavController(findNavController())
+
         card_competitions.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.navigateToCompetitionSelect())
         }
