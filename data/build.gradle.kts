@@ -13,6 +13,8 @@ dependencies {
     api (deps.moshi.retrofitConverter)
     implementation (deps.moshi.runtime)
     kapt (deps.moshi.compiler)
+
+    kapt (deps.dagger.compiler)
     implementation (project(":base"))
 
 

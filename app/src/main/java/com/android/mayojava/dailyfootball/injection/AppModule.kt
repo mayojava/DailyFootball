@@ -5,20 +5,13 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import androidx.work.WorkManager
 import com.android.mayojava.dailyfootball.BuildConfig
-import com.android.mayojava.dailyfootball.Constants
 import com.android.mayojava.dailyfootball.DailyFootballApplication
 import com.android.mayojava.dailyfootball.base.util.AppCoroutineDispatchers
 import com.android.mayojava.dailyfootball.base.util.Logger
 import com.android.mayojava.dailyfootball.baseandroid.TimberLogger
-import com.android.mayojava.dailyfootball.data.services.FootballDataApi
-import com.android.mayojava.dailyfootball.data.services.NewsApi
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Cache
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import java.io.File
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -57,38 +50,4 @@ class AppModule {
 
     @Provides
     fun providesLogger(timber: TimberLogger): Logger = timber
-
-    @Provides
-    @Singleton
-    fun providesFootballDataApi(logger: HttpLoggingInterceptor,
-                                @Named("cache-dir") cacheDir: File,
-                                @Named("football-data-token") token: String): FootballDataApi {
-
-        return object: FootballDataApi(token) {
-            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
-                super.setOkHttpClientDefaults(builder)
-                builder.apply {
-                    addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "football-data-cache"), Constants.CACHE_SIZE))
-                }
-            }
-        }
-    }
-
-    @Provides
-    @Singleton
-    fun providesNewsApi(logger: HttpLoggingInterceptor,
-                        @Named("cache-dir") cacheDir: File,
-                        @Named("news-api-key") apiKey: String): NewsApi {
-
-        return object: NewsApi(apiKey) {
-            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
-                super.setOkHttpClientDefaults(builder)
-                builder.apply {
-                    addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "news-api-cache"), Constants.CACHE_SIZE))
-                }
-            }
-        }
-    }
 }
