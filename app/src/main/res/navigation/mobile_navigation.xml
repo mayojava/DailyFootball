@@ -23,7 +23,11 @@
         <fragment
             android:id="@+id/news_headline_host"
             android:name="com.android.mayojava.dailyfootball.news.NewsHostFragment"
-            android:label="@string/headlines" />
+            android:label="@string/headlines">
+            
+            <!-- we are navigating to news details fragment m here -->
+            
+        </fragment>
 
         <!-- competitions fragment -->
         <fragment

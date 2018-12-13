@@ -2,5 +2,7 @@
 <resources>
 	<array name="preloaded_font">
 		<item>@font/opensans</item>
+		<item>@font/sanchez</item>
+		<item>@font/copse</item>
 	</array>
 </resources>

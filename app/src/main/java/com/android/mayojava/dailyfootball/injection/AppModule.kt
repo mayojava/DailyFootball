@@ -58,37 +58,37 @@ class AppModule {
     @Provides
     fun providesLogger(timber: TimberLogger): Logger = timber
 
-    @Provides
-    @Singleton
-    fun providesFootballDataApi(logger: HttpLoggingInterceptor,
-                                @Named("cache-dir") cacheDir: File,
-                                @Named("football-data-token") token: String): FootballDataApi {
-
-        return object: FootballDataApi(token) {
-            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
-                super.setOkHttpClientDefaults(builder)
-                builder.apply {
-                    addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "football-data-cache"), Constants.CACHE_SIZE))
-                }
-            }
-        }
-    }
-
-    @Provides
-    @Singleton
-    fun providesNewsApi(logger: HttpLoggingInterceptor,
-                        @Named("cache-dir") cacheDir: File,
-                        @Named("news-api-key") apiKey: String): NewsApi {
-
-        return object: NewsApi(apiKey) {
-            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
-                super.setOkHttpClientDefaults(builder)
-                builder.apply {
-                    addInterceptor(logger)
-                    cache(Cache(File(cacheDir, "news-api-cache"), Constants.CACHE_SIZE))
-                }
-            }
-        }
-    }
+//    @Provides
+//    @Singleton
+//    fun providesFootballDataApi(logger: HttpLoggingInterceptor,
+//                                @Named("cache-dir") cacheDir: File,
+//                                @Named("football-data-token") token: String): FootballDataApi {
+//
+//        return object: FootballDataApi(token) {
+//            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
+//                super.setOkHttpClientDefaults(builder)
+//                builder.apply {
+//                    addInterceptor(logger)
+//                    cache(Cache(File(cacheDir, "football-data-cache"), Constants.CACHE_SIZE))
+//                }
+//            }
+//        }
+//    }
+//
+//    @Provides
+//    @Singleton
+//    fun providesNewsApi(logger: HttpLoggingInterceptor,
+//                        @Named("cache-dir") cacheDir: File,
+//                        @Named("news-api-key") apiKey: String): NewsApi {
+//
+//        return object: NewsApi(apiKey) {
+//            override fun setOkHttpClientDefaults(builder: OkHttpClient.Builder) {
+//                super.setOkHttpClientDefaults(builder)
+//                builder.apply {
+//                    addInterceptor(logger)
+//                    cache(Cache(File(cacheDir, "news-api-cache"), Constants.CACHE_SIZE))
+//                }
+//            }
+//        }
+//    }
 }
