@@ -34,7 +34,7 @@ class BbcNewsFragment: BaseFragment() {
         bbc_news_recycler.layoutManager = layoutManager
         bbc_news_recycler.adapter = adapter
 
-        setupRecyclerView(view.context)
+        setupRecyclerItemDecorator(view.context)
     }
 
     override fun onAttach(context: Context?) {
@@ -45,7 +45,7 @@ class BbcNewsFragment: BaseFragment() {
         })
     }
 
-    private fun setupRecyclerView(context: Context) {
+    private fun setupRecyclerItemDecorator(context: Context) {
         val attrs = intArrayOf(android.R.attr.listDivider)
         val a = context.obtainStyledAttributes(attrs)
         val divider: Drawable? = a.getDrawable(0)

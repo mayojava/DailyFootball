@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fitsSystemWindows="true">
 	
-	<com.google.android.material.tabs.TabLayout
+	<com.google.android.material.appbar.AppBarLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/news_sliding_tab"
-			android:minHeight="?actionBarSize"
-			app:tabGravity="fill"
-			app:tabIndicatorHeight="4dp"
-			app:tabMode="scrollable"/>
+			android:fitsSystemWindows="true"
+			android:background="?attr/colorPrimary"
+			app:elevation="16dp">
+		
+		<com.google.android.material.appbar.CollapsingToolbarLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:fitsSystemWindows="true"
+				app:contentScrim="?attr/colorPrimary"
+				app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+			
+			<androidx.appcompat.widget.Toolbar
+					android:id="@+id/bbc_toolbar"
+					android:layout_width="match_parent"
+					android:layout_height="?attr/actionBarSize"
+					android:layout_gravity="top"
+					android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+					android:background="?attr/colorPrimary"
+					app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
+			
+		</com.google.android.material.appbar.CollapsingToolbarLayout>
+		
+		<com.google.android.material.tabs.TabLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom"
+				android:id="@+id/news_sliding_tab"
+				android:minHeight="?actionBarSize"
+				app:tabGravity="fill"
+				app:tabIndicatorHeight="4dp"
+				app:tabMode="scrollable"/>
+		
+	</com.google.android.material.appbar.AppBarLayout>
 	
 	<androidx.viewpager.widget.ViewPager
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior"
 			android:id="@+id/news_pager"/>
-</LinearLayout>
+	
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
