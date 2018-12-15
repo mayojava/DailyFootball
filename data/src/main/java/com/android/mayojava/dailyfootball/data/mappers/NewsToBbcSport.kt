@@ -10,7 +10,7 @@ object NewsToBbcSport: Mapper<News, List<BbcNewsEntity>> {
             title = it.title,
             description = it.description,
             url = it.url,
-            urlToImage = it.urlToImage,
+            urlToImage = it.urlToImage ?: "",
             publishedAt = it.publishedAt,
             content = it.content ?: ""
         ) }

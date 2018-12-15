@@ -10,7 +10,7 @@ import io.reactivex.Flowable
 @Dao
 interface BbcSportsDao: BaseDao<BbcNewsEntity> {
     @Query("DELETE FROM bbc_sports")
-    suspend fun deleteAllItems()
+    fun deleteAllItems(): Int
 
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
     fun getAllNews(): Flowable<List<BbcNewsEntity>>
