@@ -46,7 +46,7 @@ class BbcSportNewsRepository @Inject constructor(
         return result.toEither()
     }
 
-    private fun saveInDb(result: Try<List<BbcNewsEntity>>) {
+    private suspend fun saveInDb(result: Try<List<BbcNewsEntity>>) {
         val news = result.getOrDefault { listOf() }
         if (news.isNotEmpty()) {
             localNewsStore.deleteAllAndInsert(news)
