@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.news.bbc.BbcNewsFragment
 import com.android.mayojava.dailyfootball.news.footballitalia.FootBallItalia
@@ -25,10 +26,9 @@ class NewsHostFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as AppCompatActivity).setSupportActionBar(bbc_toolbar)
         val navController = findNavController()
-        val appBarConfig = AppBarConfiguration(navController.graph)
-        (activity as AppCompatActivity).setupActionBarWithNavController(navController, appBarConfig)
+        newsHostCollapsingToolbar.setupWithNavController(newsHostToolbar, navController)
+        newsHostToolbar.title = getString(R.string.headlines)
 
         val tabAdapter = NewsViewPagerAdapter(childFragmentManager)
         //add tabs

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.Constants
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseFragment
@@ -24,6 +26,7 @@ class SelectCompetitionFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        compsToolbar.setupWithNavController(findNavController())
         val vm = ViewModelProviders.of(this, viewModelFactory).get(SelectCompetitionViewModel::class.java)
         vm.competitions.observe(this, Observer {
             adapter.clear()

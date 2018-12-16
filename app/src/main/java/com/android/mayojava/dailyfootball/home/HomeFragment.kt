@@ -8,24 +8,24 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.base.BaseFragment
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.injection.AppViewModelFactory
-import kotlinx.android.synthetic.main.new_home.*
+import kotlinx.android.synthetic.main.home_fragment.*
 import javax.inject.Inject
 
 class HomeFragment: BaseFragment() {
     @Inject lateinit var viewModelFactory: AppViewModelFactory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.new_home, container, false)
+        return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupToolbar(toolbar)
-        setupNavController(findNavController())
+        toolbar.setupWithNavController(findNavController())
 
         card_competitions.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.navigateToCompetitionSelect())

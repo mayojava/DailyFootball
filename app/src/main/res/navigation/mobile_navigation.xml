@@ -13,10 +13,10 @@
 		<action
 				android:id="@+id/navigate_to_competition_select"
 				app:destination="@id/competitions_home"
-				app:enterAnim="@anim/fade_in"
-				app:exitAnim="@anim/fade_out"
-				app:popExitAnim="@anim/fade_out"
-				app:popEnterAnim="@anim/fade_in"/>
+				app:popExitAnim="@anim/slide_out_right"
+				app:popEnterAnim="@anim/slide_in_left"
+				app:enterAnim="@anim/slide_in_right"
+				app:exitAnim="@anim/slide_out_left"/>
 		
 		<action android:id="@+id/navigate_to_headlines"
 		        app:destination="@id/news_headline_host"
@@ -52,6 +52,10 @@
 	<!-- news details fragment -->
 	<fragment
 			android:id="@+id/news_details"
-			android:name="com.android.mayojava.dailyfootball.newsdetails.NewsDetailsFragment"
-	/>
+			android:name="com.android.mayojava.dailyfootball.newsdetails.NewsDetailsFragment">
+		<argument android:name="@string/argument_news_id"
+		          app:argType="integer" />
+		<argument android:name="@string/argument_news_source"
+		          app:argType="string"/>
+	</fragment>
 </navigation>

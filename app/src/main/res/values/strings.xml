@@ -6,4 +6,6 @@
     <string name="card_title_competitions">Competitions</string>
     <string name="choose_competition">Choose Competition</string>
 	<string name="headlines">Headlines</string>
+	<string name="argument_news_id">newsId</string>
+	<string name="argument_news_source">newsSource</string>
 </resources>
