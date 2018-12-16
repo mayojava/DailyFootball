@@ -16,7 +16,9 @@ class BbcSportNewsLocalDataSource @Inject constructor(private val bbcSportsDao: 
 
     fun insertNews(news: List<BbcNewsEntity>) = bbcSportsDao.insert(news)
 
-    suspend fun deleteAllNews() = bbcSportsDao.deleteAllItems()
+    suspend fun getNewsById(newsId: Long) = bbcSportsDao.getNewsById(newsId)
 
     suspend fun deleteAllAndInsert(news: List<BbcNewsEntity>) = bbcSportsDao.deleteAllItemsAndInsertAll(news)
+
+    fun deleteAllNews() = bbcSportsDao.deleteAllItems()
 }

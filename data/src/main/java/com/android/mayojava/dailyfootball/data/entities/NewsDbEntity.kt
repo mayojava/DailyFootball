@@ -1,6 +1,7 @@
 package com.android.mayojava.dailyfootball.data.entities
 
 interface NewsDbEntity {
+    val id: Long
     val title: String
     val description: String
     val url: String

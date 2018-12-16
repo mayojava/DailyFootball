@@ -8,7 +8,8 @@ import com.android.mayojava.dailyfootball.GlideApp
 import com.android.mayojava.dailyfootball.R
 import kotlinx.android.synthetic.main.news_row_item.view.*
 
-class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = mutableListOf()):
+class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = mutableListOf(),
+                                  private val newsItemClickListener: (NewsRowItem) -> Unit):
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -18,7 +19,7 @@ class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = 
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], newsItemClickListener)
     }
 
     fun setItems(rows: List<NewsRowItem>) {
@@ -28,7 +29,8 @@ class RecyclerAdapter constructor(private val items: MutableList<NewsRowItem> = 
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        fun bind(rowItem: NewsRowItem) {
+        fun bind(rowItem: NewsRowItem, listener: (NewsRowItem) -> Unit) {
+            itemView.setOnClickListener { listener(rowItem) }
             itemView.news_item_title.text = rowItem.title
             itemView.news_item_description.text = rowItem.description
 

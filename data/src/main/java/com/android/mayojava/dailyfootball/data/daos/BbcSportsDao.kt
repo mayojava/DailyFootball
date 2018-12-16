@@ -21,6 +21,9 @@ interface BbcSportsDao: BaseDao<BbcNewsEntity> {
     @Query("SELECT * FROM bbc_sports ORDER BY publishedAt DESC")
     fun getNewsPaginated(): DataSource.Factory<Int, BbcNewsEntity>
 
+    @Query("SELECT * FROM bbc_sports where id = :newsId ")
+    suspend fun getNewsById(newsId: Long): BbcNewsEntity
+
     @Transaction
     suspend fun deleteAllItemsAndInsertAll(bbcNews: List<BbcNewsEntity>) {
         deleteAllItems()
