@@ -6,6 +6,7 @@ import com.android.mayojava.dailyfootball.home.HomeActivity
 import com.android.mayojava.dailyfootball.home.HomeActivityViewModel
 import com.android.mayojava.dailyfootball.injection.ViewModelKey
 import com.android.mayojava.dailyfootball.news.bbc.BbcNewsModule
+import com.android.mayojava.dailyfootball.newsdetails.NewsDetailsModule
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -16,7 +17,8 @@ internal abstract class HomeActivityModule {
     @ContributesAndroidInjector(modules = [
         HomeFragmentModule::class,
         SelectCompetitionModule::class,
-        BbcNewsModule::class
+        BbcNewsModule::class,
+        NewsDetailsModule::class
     ])
     internal abstract fun bindsHomeActivity(): HomeActivity
 
