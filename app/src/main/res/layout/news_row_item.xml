@@ -25,8 +25,7 @@
           android:textStyle="bold"
           android:paddingTop="6dp"
           android:paddingBottom="6dp"
-          app:fontFamily="@font/copse"
-          tools:text="Okocha Dazzles Manchester United"/>
+          tools:text="Okocha Dazzles Manchester United" app:fontFamily="@font/pt_serif"/>
 
 	<TextView
 		android:layout_width="match_parent"
@@ -34,6 +33,7 @@
 		android:id="@+id/news_item_description"
 		android:layout_marginLeft="16dp"
 		android:layout_marginRight="16dp"
+		app:fontFamily="@font/karla"
 		tools:text="This is a sample of the news item description"
 		android:textSize="16sp"/>
 </LinearLayout>

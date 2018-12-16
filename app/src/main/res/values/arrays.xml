@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<array name="preloaded_font">
-		<item>@font/opensans</item>
-		<item>@font/sanchez</item>
-		<item>@font/copse</item>
+		<item>@font/pt_serif</item>
+		<item>@font/karla</item>
+		<item>@font/muli</item>
 	</array>
 </resources>

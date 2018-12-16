@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="android:fontFamily">@font/opensans</item>
+        <item name="android:fontFamily">@font/muli</item>
     </style>
 
 
