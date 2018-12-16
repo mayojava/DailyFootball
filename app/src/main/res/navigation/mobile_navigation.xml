@@ -4,45 +4,54 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/mobile_navigation"
             app:startDestination="@+id/home_fragment">
-    
-    <fragment
-            android:id="@+id/home_fragment"
-            android:name="com.android.mayojava.dailyfootball.home.HomeFragment"
-            android:label="@string/home">
-        
-        <action
-                android:id="@+id/navigate_to_competition_select"
-                app:destination="@id/competitions_home"/>
-        
-        <action android:id="@+id/navigate_to_headlines"
-                app:destination="@id/news_headline_host"/>
-    
-    </fragment>
-    
-    <!-- news fragment -->
-    <fragment
-            android:id="@+id/news_headline_host"
-            android:name="com.android.mayojava.dailyfootball.news.NewsHostFragment"
-            android:label="@string/headlines">
-        
-        <action android:id="@+id/to_news_details"
-            app:destination="@id/news_details"/>
-    
-    </fragment>
-    
-    <!-- competitions fragment -->
-    <fragment
-            android:id="@+id/competitions_home"
-            android:name="com.android.mayojava.dailyfootball.competitions.SelectCompetitionFragment"
-            android:label="@string/choose_competition">
-        
-        <!-- navigate to competitions sub graph -->
-    
-    </fragment>
-    
-    <!-- news details fragment -->
-    <fragment
-            android:id="@+id/news_details"
-            android:name="com.android.mayojava.dailyfootball.newsdetails.NewsDetailsFragment"
-    />
+	
+	<fragment
+			android:id="@+id/home_fragment"
+			android:name="com.android.mayojava.dailyfootball.home.HomeFragment"
+			android:label="@string/home">
+		
+		<action
+				android:id="@+id/navigate_to_competition_select"
+				app:destination="@id/competitions_home"
+				app:enterAnim="@anim/fade_in"
+				app:exitAnim="@anim/fade_out"
+				app:popExitAnim="@anim/fade_out"
+				app:popEnterAnim="@anim/fade_in"/>
+		
+		<action android:id="@+id/navigate_to_headlines"
+		        app:destination="@id/news_headline_host"
+		        app:popExitAnim="@anim/slide_out_right"
+		        app:popEnterAnim="@anim/slide_in_left"
+		        app:enterAnim="@anim/slide_in_right"
+		        app:exitAnim="@anim/slide_out_left"
+		/>
+	
+	</fragment>
+	
+	<!-- news fragment -->
+	<fragment
+			android:id="@+id/news_headline_host"
+			android:name="com.android.mayojava.dailyfootball.news.NewsHostFragment"
+			android:label="@string/headlines">
+		
+		<action android:id="@+id/to_news_details"
+		        app:destination="@id/news_details"/>
+	
+	</fragment>
+	
+	<!-- competitions fragment -->
+	<fragment
+			android:id="@+id/competitions_home"
+			android:name="com.android.mayojava.dailyfootball.competitions.SelectCompetitionFragment"
+			android:label="@string/choose_competition">
+		
+		<!-- navigate to competitions sub graph -->
+	
+	</fragment>
+	
+	<!-- news details fragment -->
+	<fragment
+			android:id="@+id/news_details"
+			android:name="com.android.mayojava.dailyfootball.newsdetails.NewsDetailsFragment"
+	/>
 </navigation>
