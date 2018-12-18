@@ -17,7 +17,6 @@ import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseFragment
 import com.android.mayojava.dailyfootball.injection.AppViewModelFactory
 import com.android.mayojava.dailyfootball.news.NewsHostFragmentDirections
-import com.android.mayojava.dailyfootball.news.NewsRowItem
 import com.android.mayojava.dailyfootball.news.RecyclerAdapter
 import kotlinx.android.synthetic.main.bbc_news_fragment.*
 import javax.inject.Inject
