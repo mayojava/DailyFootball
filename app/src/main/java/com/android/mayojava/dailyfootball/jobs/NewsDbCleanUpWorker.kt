@@ -15,6 +15,8 @@ class NewsDbCleanUpWorker(context: Context, params: WorkerParameters): Coroutine
      */
 
     override suspend fun doWork(): Result {
+        AndroidWorkerInjector.inject(this)
+        
         bbcSportNewsLocalDataSource.deleteAllNews()
         return Result.success()
     }

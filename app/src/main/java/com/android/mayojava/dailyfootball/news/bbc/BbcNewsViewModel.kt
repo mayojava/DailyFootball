@@ -25,7 +25,7 @@ class BbcNewsViewModel @Inject constructor(private val bbcNewsInteractor: BbcNew
             }
         }
 
-        launch {
+        launch(dispatchers.io) {
             bbcNewsInteractor()
         }
     }

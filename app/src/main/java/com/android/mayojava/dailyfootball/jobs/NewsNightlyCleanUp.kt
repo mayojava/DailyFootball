@@ -9,7 +9,7 @@ class NewsNightlyCleanUp @Inject constructor(private val workManager: WorkManage
     @SuppressLint("NewApi")
     fun setupNewsNightlyCleanup() {
         val newsDailyCleanUpRequest = PeriodicWorkRequest.Builder(
-            NewsDbCleanUpWorker::class.java, 10, TimeUnit.MINUTES)
+            NewsDbCleanUpWorker::class.java, 24, TimeUnit.HOURS)
             .setConstraints(Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .setRequiresDeviceIdle(true)
