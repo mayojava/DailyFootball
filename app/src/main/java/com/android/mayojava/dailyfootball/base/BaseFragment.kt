@@ -1,19 +1,25 @@
 package com.android.mayojava.dailyfootball.base
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.InsetDrawable
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
+import com.android.mayojava.dailyfootball.R
 import dagger.android.support.DaggerFragment
 
 abstract class BaseFragment: DaggerFragment() {
-    fun setupToolbar(toolbar: Toolbar) {
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-    }
 
-    fun setupNavController(navController: NavController) {
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        (activity as AppCompatActivity).setupActionBarWithNavController(navController, appBarConfiguration)
+    fun setupRecyclerItemDecorator(view: RecyclerView, context: Context) {
+        val attrs = intArrayOf(android.R.attr.listDivider)
+        val a = context.obtainStyledAttributes(attrs)
+        val divider: Drawable? = a.getDrawable(0)
+        val inset = resources.getDimensionPixelSize(R.dimen.home_card_spacing_size)
+        val insetDrawable = InsetDrawable(divider, inset, 0, inset, 0)
+        a.recycle()
+
+        val itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        itemDecoration.setDrawable(insetDrawable)
+        view.addItemDecoration(itemDecoration)
     }
 }
