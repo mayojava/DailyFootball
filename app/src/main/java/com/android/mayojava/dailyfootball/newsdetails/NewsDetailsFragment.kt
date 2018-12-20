@@ -35,8 +35,8 @@ class NewsDetailsFragment: BaseFragment() {
 
             readMore.setOnClickListener {
                 val builder = CustomTabsIntent.Builder()
-                builder.setStartAnimations(it.context, R.anim.slide_in_right, R.anim.slide_out_left)
-                builder.setExitAnimations(it.context, R.anim.slide_in_left, R.anim.slide_out_right)
+                builder.setStartAnimations(it.context, R.anim.slide_in_bottom, R.anim.no_anim)
+                builder.setExitAnimations(it.context, R.anim.no_anim, R.anim.slide_out_bottom)
                 val intent = builder.build()
                 intent.launchUrl(context, Uri.parse(selectedNews.url))
             }

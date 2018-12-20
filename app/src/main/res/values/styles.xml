@@ -9,5 +9,13 @@
         <item name="android:fontFamily">@font/muli</item>
     </style>
 
-
+    <!--<style name="ReadMoreButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">-->
+        <!--<item name="shapeAppearance">@style/ShapedButtonStyle</item>-->
+    <!--</style>-->
+    <!---->
+    <!--<style name="ShapedButtonStyle">-->
+        <!--<item name="cornerFamilyTopRight">cut</item>-->
+        <!--<item name="cornerFamilyBottomRight">cut</item>-->
+        <!--<item name="cornerSize">18dp</item>-->
+    <!--</style>-->
 </resources>
