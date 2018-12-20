@@ -5,19 +5,20 @@ import androidx.work.CoroutineWorker
 import androidx.work.Result
 import androidx.work.WorkerParameters
 import com.android.mayojava.dailyfootball.data.repositories.bbcsport.BbcSportNewsLocalDataSource
+import com.android.mayojava.dailyfootball.data.repositories.talksport.TalkSportLocalDataSource
 import javax.inject.Inject
 
 class NewsDbCleanUpWorker(context: Context, params: WorkerParameters): CoroutineWorker(context, params) {
 
     @Inject lateinit var bbcSportNewsLocalDataSource: BbcSportNewsLocalDataSource
-    /**
-     * TODO inject local dao for other news source repository and call delete to clear
-     */
+    @Inject lateinit var talkSportLocalDataSource: TalkSportLocalDataSource
 
     override suspend fun doWork(): Result {
         AndroidWorkerInjector.inject(this)
         
         bbcSportNewsLocalDataSource.deleteAllNews()
+        talkSportLocalDataSource.deleteAllNews()
+
         return Result.success()
     }
 
