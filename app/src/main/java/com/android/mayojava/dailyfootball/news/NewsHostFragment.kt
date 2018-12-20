@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.news.bbc.BbcNewsFragment
 import com.android.mayojava.dailyfootball.news.footballitalia.FootBallItalia
 import com.android.mayojava.dailyfootball.news.fourfourtwo.FourFourTwo
-import com.android.mayojava.dailyfootball.news.talksport.TalkSport
+import com.android.mayojava.dailyfootball.news.talksport.TalkSportFragment
 import com.android.mayojava.dailyfootball.news.thesportbible.TheSportBible
 import kotlinx.android.synthetic.main.fragment_news_host.*
 
@@ -34,7 +31,7 @@ class NewsHostFragment: Fragment() {
         //add tabs
         tabAdapter.addFragments(BbcNewsFragment())
         tabAdapter.addFragments(FourFourTwo())
-        tabAdapter.addFragments(TalkSport())
+        tabAdapter.addFragments(TalkSportFragment())
         tabAdapter.addFragments(TheSportBible())
         tabAdapter.addFragments(FootBallItalia())
 
