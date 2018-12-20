@@ -7,12 +7,11 @@ import dagger.Provides
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
 import javax.inject.Named
-import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+object NetworkModule {
     @Provides
-    @Singleton
+    @JvmStatic
     fun providesHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
             if (BuildConfig.DEBUG) {
@@ -22,7 +21,7 @@ class NetworkModule {
     }
 
     @Provides
-    @Singleton
+    @JvmStatic
     @Named("cache-dir")
     fun providesCacheDir(application: DailyFootballApplication): File = application.cacheDir
 }

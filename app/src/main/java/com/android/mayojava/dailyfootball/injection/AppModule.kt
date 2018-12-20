@@ -11,6 +11,7 @@ import com.android.mayojava.dailyfootball.base.util.Logger
 import com.android.mayojava.dailyfootball.baseandroid.TimberLogger
 import dagger.Module
 import dagger.Provides
+import dagger.Reusable
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Named
 import javax.inject.Singleton
@@ -24,21 +25,13 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideCoroutineDispatchers(): AppCoroutineDispatchers = AppCoroutineDispatchers(
-        io = Dispatchers.IO,
-        computation = Dispatchers.Default,
-        main = Dispatchers.Main
-    )
+    fun providesWorkManager(): WorkManager = WorkManager.getInstance()
 
     @Provides
-    @Singleton
+    @Reusable
     fun providesSharedPreferencesManager(application: DailyFootballApplication): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(application)
     }
-
-    @Provides
-    @Singleton
-    fun providesWorkManager(): WorkManager = WorkManager.getInstance()
 
     @Provides
     @Named("news-api-key")
@@ -50,4 +43,11 @@ class AppModule {
 
     @Provides
     fun providesLogger(timber: TimberLogger): Logger = timber
+
+    @Provides
+    fun provideCoroutineDispatchers(): AppCoroutineDispatchers = AppCoroutineDispatchers(
+        io = Dispatchers.IO,
+        computation = Dispatchers.Default,
+        main = Dispatchers.Main
+    )
 }
