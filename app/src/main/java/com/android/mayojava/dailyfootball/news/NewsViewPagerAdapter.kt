@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 
 class NewsViewPagerAdapter(fragmentManager: FragmentManager): FragmentStatePagerAdapter(fragmentManager) {
     private val fragments = mutableListOf<Fragment>()
-    private val titles = arrayOf("BBC", "Four-Four-Two", "TalkSportFragment", "TheSportBible", "FootballItalia")
+    private val titles = arrayOf("BBC", "Talk Sport", "Four-Four-Two", "TheSportBible", "FootballItalia")
 
     override fun getItem(position: Int): Fragment = fragments[position]
 

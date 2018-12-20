@@ -1,11 +1,13 @@
 package com.android.mayojava.dailyfootball.data.daos
 
 import androidx.paging.DataSource
+import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import com.android.mayojava.dailyfootball.data.entities.TalkSportEntity
 import io.reactivex.Flowable
 
+@Dao
 interface TalkSportDao: BaseDao<TalkSportEntity> {
     @Query("DELETE FROM talk_sport")
     fun deleteAllNews()

@@ -25,7 +25,7 @@ class TalkSportRepository @Inject constructor(
         val response = remoteDataSource.talkSportNews()
         if (response.isSuccess()) {
             val diff = DiffUtil.diff(localDataSource.newsList(), response.getOrDefault { listOf() })
-            localDataSource.inserNews(diff)
+            localDataSource.insertNews(diff)
         } else {
             response.fold({ error -> logger.e(error)}, {})
         }

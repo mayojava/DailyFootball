@@ -22,7 +22,7 @@ import javax.inject.Inject
 class TalkSportFragment: BaseFragment() {
     @Inject lateinit var viewModelFactory: AppViewModelFactory
 
-    private val adapter = RecyclerAdapter(rowLayoutId = R.layout.news_row_item_pic_right) {
+    private val adapter = RecyclerAdapter(rowLayoutId = R.layout.news_row_item) {
         val direction = NewsHostFragmentDirections.toNewsDetails(it.id.toInt(), Constants.TALKSPORT)
         findNavController().navigate(direction)
     }

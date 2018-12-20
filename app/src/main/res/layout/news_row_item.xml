@@ -36,5 +36,5 @@
 		android:layout_marginRight="16dp"
 		app:fontFamily="@font/karla"
 		tools:text="This is a sample of the news item description"
-		android:textSize="16sp"/>
+		android:textSize="18sp"/>
 </LinearLayout>

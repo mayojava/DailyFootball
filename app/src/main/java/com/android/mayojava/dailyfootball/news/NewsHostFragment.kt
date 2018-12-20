@@ -30,8 +30,8 @@ class NewsHostFragment: Fragment() {
         val tabAdapter = NewsViewPagerAdapter(childFragmentManager)
         //add tabs
         tabAdapter.addFragments(BbcNewsFragment())
-        tabAdapter.addFragments(FourFourTwo())
         tabAdapter.addFragments(TalkSportFragment())
+        tabAdapter.addFragments(FourFourTwo())
         tabAdapter.addFragments(TheSportBible())
         tabAdapter.addFragments(FootBallItalia())
 

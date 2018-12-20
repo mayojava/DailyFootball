@@ -14,9 +14,9 @@ class TalkSportLocalDataSource @Inject constructor(private val talkSportDao: Tal
 
     fun deleteAllNews() = talkSportDao.deleteAllNews()
 
-    suspend fun newsList(): List<TalkSportEntity> = talkSportDao.getLatestNewsList()
+    fun insertNews(news: List<TalkSportEntity>) = talkSportDao.insert(news)
 
-    suspend fun inserNews(news: List<TalkSportEntity>) = talkSportDao.insert(news)
+    suspend fun newsList(): List<TalkSportEntity> = talkSportDao.getLatestNewsList()
 
     suspend fun getNewsById(id: Long) = talkSportDao.getNewsById(id)
 
