@@ -12,13 +12,13 @@ class BbcSportNewsLocalDataSource @Inject constructor(private val bbcSportsDao: 
 
     fun observeForPagination(): DataSource.Factory<Int, BbcNewsEntity> = bbcSportsDao.getNewsPaginated()
 
-    fun newsList(): List<BbcNewsEntity> = bbcSportsDao.getNewsList()
+    fun deleteAllNews() = bbcSportsDao.deleteAllItems()
 
-    fun insertNews(news: List<BbcNewsEntity>) = bbcSportsDao.insert(news)
+    suspend fun newsList(): List<BbcNewsEntity> = bbcSportsDao.getNewsList()
+
+    suspend fun insertNews(news: List<BbcNewsEntity>) = bbcSportsDao.insert(news)
 
     suspend fun getNewsById(newsId: Long) = bbcSportsDao.getNewsById(newsId)
 
     suspend fun deleteAllAndInsert(news: List<BbcNewsEntity>) = bbcSportsDao.deleteAllItemsAndInsertAll(news)
-
-    fun deleteAllNews() = bbcSportsDao.deleteAllItems()
 }

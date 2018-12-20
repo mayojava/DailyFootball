@@ -27,7 +27,7 @@ object Versions {
     const val timber = "4.7.1"
     const val customtab = "28.0.0-alpha1"
 
-    const val androidGradlePlugin = "3.4.0-alpha08"
+    const val androidGradlePlugin = "3.4.0-alpha09"
 
     const val junit = "4.12"
     const val espressocore = "3.1.0"
