@@ -25,6 +25,7 @@ object Versions {
     const val inboxrecycler = "1.0.0-rc1"
     const val glide = "4.8.0"
     const val timber = "4.7.1"
+    const val customtab = "28.0.0-alpha1"
 
     const val androidGradlePlugin = "3.4.0-alpha08"
 
@@ -47,6 +48,7 @@ object deps {
 
     object android {
         const val material = "com.google.android.material:material:${Versions.material}"
+        const val customtab = "com.android.support:customtabs:${Versions.customtab}"
         object androidx {
             const val core = "androidx.core:core-ktx:${Versions.coreKtx}"
             const val appcompat = "androidx.appcompat:appcompat:${Versions.supportVersion}"

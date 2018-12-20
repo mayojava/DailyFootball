@@ -66,6 +66,8 @@ dependencies {
     implementation (deps.misc.glide.runtime)
     kapt (deps.misc.glide.processor)
 
+    implementation (deps.android.customtab)
+
     testImplementation (deps.test.junit)
     testImplementation (deps.android.androidx.lifecycle.test)
     testImplementation (deps.android.androidx.room.test)

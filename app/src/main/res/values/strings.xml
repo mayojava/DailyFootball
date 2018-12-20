@@ -8,4 +8,5 @@
 	<string name="headlines">Headlines</string>
 	<string name="argument_news_id">newsId</string>
 	<string name="argument_news_source">newsSource</string>
+	<string name="read_more">Read More</string>
 </resources>

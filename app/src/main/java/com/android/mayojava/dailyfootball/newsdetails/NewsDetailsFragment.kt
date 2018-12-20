@@ -1,10 +1,11 @@
 package com.android.mayojava.dailyfootball.newsdetails
 
-import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.android.mayojava.dailyfootball.GlideApp
@@ -21,16 +22,24 @@ class NewsDetailsFragment: BaseFragment() {
         return inflater.inflate(R.layout.news_details_fragment, container, false)
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(NewsDetailsViewModel::class.java)
-        viewModel.selectedNews.observe(this, Observer{
-            details_toolbar.title = it.title
-            news_content.text = if(it.content.isNotEmpty()) it.content else it.description
+        viewModel.selectedNews.observe(viewLifecycleOwner, Observer{ selectedNews ->
+            details_toolbar.title = selectedNews.title
+            news_content.text = if(selectedNews.content.isNotEmpty()) selectedNews.content else selectedNews.description
             GlideApp.with(this)
-                .load(it.urlToImage)
+                .load(selectedNews.urlToImage)
                 .into(newsImage)
+
+            readMore.setOnClickListener {
+                val builder = CustomTabsIntent.Builder()
+                builder.setStartAnimations(it.context, R.anim.slide_in_right, R.anim.slide_out_left)
+                builder.setExitAnimations(it.context, R.anim.slide_in_left, R.anim.slide_out_right)
+                val intent = builder.build()
+                intent.launchUrl(context, Uri.parse(selectedNews.url))
+            }
         })
 
         val arguments = NewsDetailsFragmentArgs.fromBundle(arguments)

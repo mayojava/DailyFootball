@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BbcNewsViewModel @Inject constructor(private val bbcNewsInteractor: BbcNewsInteractor,
-                                           private val dispatchers: AppCoroutineDispatchers): BaseViewModel() {
+                                           dispatchers: AppCoroutineDispatchers): BaseViewModel() {
 
     private val _news: MutableLiveData<List<NewsRowItem>> = MutableLiveData()
     val bbcNews: LiveData<List<NewsRowItem>>
