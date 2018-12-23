@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<item android:id="@+id/action_fixtures"
+	      android:title="@string/fixtures"
+	      android:icon="@drawable/ic_football_normal"/>
+	
+	<item android:id="@+id/action_results"
+	      android:title="@string/results"
+	      android:icon="@drawable/ic_football_spark"/>
+	
+	<item android:id="@+id/action_standings"
+	      android:title="@string/standings"
+	      android:icon="@drawable/ic_league_table"/>
+	
+	<item android:id="@+id/teams"
+	      android:title="@string/teams"
+          android:icon="@drawable/ic_team"/>
+</menu>

@@ -37,8 +37,8 @@ class SelectCompetitionFragment: BaseFragment() {
 
     private fun list() {
         image_premier_league.setOnClickListener {
-            val comp = adapter.first { model -> model.id == Constants.PREMIER_LEAGUE_ID }
-            Toast.makeText(context, comp.name, Toast.LENGTH_LONG).show()
+            findNavController().navigate(SelectCompetitionFragmentDirections.toCompetitions())
+
         }
 
         image_champions_league.setOnClickListener {

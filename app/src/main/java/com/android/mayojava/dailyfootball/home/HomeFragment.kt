@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -36,9 +35,8 @@ class HomeFragment: BaseFragment() {
         }
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
-        val vm = ViewModelProviders.of(this, viewModelFactory).get(HomeFragmentViewModel::class.java)
-        vm.competitions.observe(this, Observer {})
+        ViewModelProviders.of(this, viewModelFactory).get(HomeFragmentViewModel::class.java)
     }
 }

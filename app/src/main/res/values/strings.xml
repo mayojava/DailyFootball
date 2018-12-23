@@ -9,4 +9,8 @@
 	<string name="argument_news_id">newsId</string>
 	<string name="argument_news_source">newsSource</string>
 	<string name="read_more">Read More</string>
+	<string name="fixtures">Fixtures</string>
+	<string name="teams">Teams</string>
+	<string name="standings">Standings</string>
+	<string name="results">Results</string>
 </resources>

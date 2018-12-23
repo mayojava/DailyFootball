@@ -5,7 +5,7 @@ object Versions {
 
     const val kotlin = "1.3.11"
     const val coreKtx = "1.0.1"
-    const val supportVersion = "1.0.2"
+    const val supportVersion = "1.1.0-alpha01"
     const val constraintlayout = "1.1.3"
     const val navigation = "1.0.0-alpha08"
     const val material ="1.0.0"
