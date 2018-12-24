@@ -9,7 +9,7 @@ object Versions {
     const val constraintlayout = "1.1.3"
     const val navigation = "1.0.0-alpha08"
     const val material ="1.0.0"
-    const val coroutine = "1.0.1"
+    const val coroutine = "1.1.0"
     const val arrow = "0.8.1"
     const val dagger = "2.19"
     const val retrofit = "2.5.0"

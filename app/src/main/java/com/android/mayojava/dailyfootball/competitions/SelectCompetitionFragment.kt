@@ -1,5 +1,6 @@
 package com.android.mayojava.dailyfootball.competitions
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +39,7 @@ class SelectCompetitionFragment: BaseFragment() {
     private fun list() {
         image_premier_league.setOnClickListener {
             findNavController().navigate(SelectCompetitionFragmentDirections.toCompetitions())
-
+            //startActivity(Intent(context, CompetitionsHostActivity::class.java))
         }
 
         image_champions_league.setOnClickListener {

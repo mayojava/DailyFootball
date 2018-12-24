@@ -7,7 +7,7 @@
                                                    android:id="@+id/competitionsContainer">
 	
 	<fragment android:layout_width="0dp"
-	          android:layout_height="0dp"
+	          android:layout_height="wrap_content"
 	          android:id="@+id/competitionsNavHost"
 	          android:name="androidx.navigation.fragment.NavHostFragment"
 	          app:layout_constraintLeft_toLeftOf="parent"
@@ -17,12 +17,15 @@
 	          app:navGraph="@navigation/competitions_nav"/>
 	
 	<com.google.android.material.bottomnavigation.BottomNavigationView android:layout_width="match_parent"
-	                                                                   android:layout_height="wrap_content"
+	                                                                   android:layout_height="64dp"
 	                                                                   android:id="@+id/competitionsBottomNav"
 	                                                                   android:background="?android:attr/windowBackground"
 	                                                                   app:layout_constraintLeft_toLeftOf="parent"
 	                                                                   app:layout_constraintRight_toRightOf="parent"
 	                                                                   app:layout_constraintBottom_toBottomOf="parent"
+	                                                                   app:itemBackground="@color/colorSecondary"
+	                                                                   app:itemIconTint="@color/black"
+	                                                                   app:itemTextColor="@color/black"
 	                                                                   app:menu="@menu/competitions_menu_nav"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

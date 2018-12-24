@@ -13,7 +13,7 @@
 		
 		<action
 				android:id="@+id/navigate_to_competition_select"
-				app:destination="@id/competitions_home"
+				app:destination="@id/competitions_nav"
 				app:popExitAnim="@anim/slide_out_right"
 				app:popEnterAnim="@anim/slide_in_left"
 				app:enterAnim="@anim/slide_in_right"
