@@ -63,6 +63,8 @@ dependencies {
 
     implementation (deps.android.androidx.workManager.runtime)
 
+    implementation(deps.kotlin.coroutine.android)
+
     implementation (deps.misc.glide.runtime)
     kapt (deps.misc.glide.processor)
 

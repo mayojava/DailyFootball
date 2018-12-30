@@ -124,6 +124,7 @@ object deps {
         object coroutine {
             const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
             const val rx = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.coroutine}"
+            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
         }
     }
 
