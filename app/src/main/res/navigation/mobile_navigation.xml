@@ -3,35 +3,11 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/home_fragment">
-	
-	<fragment
-			android:id="@+id/home_fragment"
-			android:name="com.android.mayojava.dailyfootball.home.HomeFragment"
-			android:label="@string/home"
-			tools:layout="@layout/home_fragment">
-		
-		<action
-				android:id="@+id/navigate_to_competition_select"
-				app:destination="@id/competitions_nav"
-				app:popExitAnim="@anim/slide_out_right"
-				app:popEnterAnim="@anim/slide_in_left"
-				app:enterAnim="@anim/slide_in_right"
-				app:exitAnim="@anim/slide_out_left"/>
-		
-		<action android:id="@+id/navigate_to_headlines"
-		        app:destination="@id/news_headline_host"
-		        app:popExitAnim="@anim/slide_out_right"
-		        app:popEnterAnim="@anim/slide_in_left"
-		        app:enterAnim="@anim/slide_in_right"
-		        app:exitAnim="@anim/slide_out_left"
-		/>
-	
-	</fragment>
+            app:startDestination="@+id/action_news">
 	
 	<!-- news fragment -->
 	<fragment
-			android:id="@+id/news_headline_host"
+			android:id="@+id/action_news"
 			android:name="com.android.mayojava.dailyfootball.news.NewsHostFragment"
 			android:label="@string/headlines"
 			tools:layout="@layout/fragment_news_host">
@@ -45,29 +21,35 @@
 	
 	</fragment>
 	
-	<!-- competitions fragment -->
-	<fragment
-			android:id="@+id/competitions_home"
-			android:name="com.android.mayojava.dailyfootball.competitions.SelectCompetitionFragment"
-			android:label="@string/choose_competition"
-			tools:layout="@layout/competitions">
-		
-		<!-- navigate to competitions sub graph -->
-		<action android:id="@+id/toCompetitions"
-				app:destination="@+id/competitions_nav"/>
+	<fragment android:id="@+id/action_fixtures"
+	          android:name="com.android.mayojava.dailyfootball.fixtures.FixturesFragment"
+	          android:label="@string/fixtures"
+	          tools:layout="@layout/fixtures_fragment"/>
 	
-	</fragment>
+	<fragment android:id="@+id/action_results"
+	          android:name="com.android.mayojava.dailyfootball.results.ResultsFragment"
+	          android:label="@string/results"
+	          tools:layout="@layout/dummy_fragment"/>
+	
+	<fragment android:id="@+id/action_standings"
+	          android:name="com.android.mayojava.dailyfootball.standings.StandingsFragment"
+	          android:label="@string/standings"
+	          tools:layout="@layout/dummy_fragment"/>
+	
+	<fragment android:id="@+id/teams"
+	          android:name="com.android.mayojava.dailyfootball.teams.TeamFragment"
+	          android:label="@string/teams"
+	          tools:layout="@layout/dummy_fragment"/>
 	
 	<!-- news details fragment -->
 	<fragment
 			android:id="@+id/news_details"
 			android:name="com.android.mayojava.dailyfootball.newsdetails.NewsDetailsFragment"
 			tools:layout="@layout/news_details_fragment">
+		
 		<argument android:name="@string/argument_news_id"
 		          app:argType="integer" />
 		<argument android:name="@string/argument_news_source"
 		          app:argType="string"/>
 	</fragment>
-	
-	<include app:graph="@navigation/competitions_nav" />
 </navigation>

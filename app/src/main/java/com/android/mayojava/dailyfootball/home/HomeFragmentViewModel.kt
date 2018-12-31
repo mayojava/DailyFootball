@@ -22,7 +22,7 @@ class HomeFragmentViewModel @Inject constructor(private val competitionsInteract
 
     init {
         launch {
-            competitionsInteractor()
+            //competitionsInteractor()
 
             withContext(dispatchers.computation) {
                 competitionsInteractor.observe().consumeEach {

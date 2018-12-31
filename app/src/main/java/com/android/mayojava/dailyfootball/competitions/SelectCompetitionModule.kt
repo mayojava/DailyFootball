@@ -9,8 +9,6 @@ import dagger.multibindings.IntoMap
 
 @Module
 internal abstract class SelectCompetitionModule {
-    @ContributesAndroidInjector
-    internal abstract fun bindsSelectCompetitionFragment(): SelectCompetitionFragment
 
     @Binds
     @IntoMap
