@@ -1,13 +1,13 @@
 package com.android.mayojava.dailyfootball.home
 
 import android.os.Bundle
-import androidx.appcompat.widget.Toolbar
+import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.base.BaseActivity
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import kotlinx.android.synthetic.main.main_nav_host.*
 
 
@@ -23,5 +23,17 @@ class HomeActivity : BaseActivity() {
 
     private fun setupBottomNavigation() {
         appBottomNav.setupWithNavController(findNavController(R.id.nav_host_fragment))
+        removePaddingFromSelectedItem()
+    }
+
+    private fun removePaddingFromSelectedItem() {
+        val menuView = appBottomNav.getChildAt(0) as BottomNavigationMenuView
+        for (i in 0..menuView.childCount) {
+            val navItemView = menuView.getChildAt(i)
+            if (navItemView is BottomNavigationItemView) {
+                val label = navItemView.findViewById<TextView>(R.id.largeLabel)
+                label.setPadding(0,0,0,0)
+            }
+        }
     }
 }

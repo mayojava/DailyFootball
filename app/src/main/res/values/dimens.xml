@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="home_card_size">128dp</dimen>
     <dimen name="home_card_title_font_size">20sp</dimen>
     <dimen name="home_card_spacing_size">16dp</dimen>
     <dimen name="home_card_inner_padding">8dp</dimen>
+    
+    <!-- Bottom Menu Override -->
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
 </resources>
