@@ -10,7 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.android.mayojava.dailyfootball.R
 import com.android.mayojava.dailyfootball.news.bbc.BbcNewsFragment
 import com.android.mayojava.dailyfootball.news.footballitalia.FootBallItalia
-import com.android.mayojava.dailyfootball.news.fourfourtwo.FourFourTwo
+import com.android.mayojava.dailyfootball.news.fourfourtwo.FourFourTwoFragment
 import com.android.mayojava.dailyfootball.news.talksport.TalkSportFragment
 import com.android.mayojava.dailyfootball.news.thesportbible.TheSportBible
 import kotlinx.android.synthetic.main.fragment_news_host.*
@@ -31,7 +31,7 @@ class NewsHostFragment: Fragment() {
         //add tabs
         tabAdapter.addFragments(BbcNewsFragment())
         tabAdapter.addFragments(TalkSportFragment())
-        tabAdapter.addFragments(FourFourTwo())
+        tabAdapter.addFragments(FourFourTwoFragment())
         tabAdapter.addFragments(TheSportBible())
         tabAdapter.addFragments(FootBallItalia())
 

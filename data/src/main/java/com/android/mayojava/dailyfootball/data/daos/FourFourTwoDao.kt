@@ -1,5 +1,6 @@
 package com.android.mayojava.dailyfootball.data.daos
 
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
@@ -18,7 +19,7 @@ interface FourFourTwoDao: BaseDao<FourFourTwoEntity> {
     suspend fun getLatestNewsList(): List<FourFourTwoEntity>
 
     @Query("SELECT * FROM four_four_two ORDER BY publishedAt DESC")
-    fun getNewsPaginated()
+    fun getNewsPaginated(): DataSource.Factory<Int, FourFourTwoEntity>
 
     @Query("SELECT * FROM four_four_two WHERE id = :newsId")
     suspend fun getNewsById(newsId: Long): FourFourTwoEntity
