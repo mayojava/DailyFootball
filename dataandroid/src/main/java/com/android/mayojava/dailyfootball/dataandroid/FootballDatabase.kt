@@ -7,14 +7,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.android.mayojava.dailyfootball.data.NewsSource
-import com.android.mayojava.dailyfootball.data.daos.BbcSportsDao
-import com.android.mayojava.dailyfootball.data.daos.CompetitionsDao
-import com.android.mayojava.dailyfootball.data.daos.LastRefreshTimeDao
-import com.android.mayojava.dailyfootball.data.daos.TalkSportDao
-import com.android.mayojava.dailyfootball.data.entities.BbcNewsEntity
-import com.android.mayojava.dailyfootball.data.entities.CompetitionsEntity
-import com.android.mayojava.dailyfootball.data.entities.LastRefreshTimeEntity
-import com.android.mayojava.dailyfootball.data.entities.TalkSportEntity
+import com.android.mayojava.dailyfootball.data.daos.*
+import com.android.mayojava.dailyfootball.data.entities.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -23,13 +17,15 @@ import kotlinx.coroutines.launch
     BbcNewsEntity::class,
     CompetitionsEntity::class,
     TalkSportEntity::class,
-    LastRefreshTimeEntity::class
+    LastRefreshTimeEntity::class,
+    FourFourTwoEntity::class
 ], version = 1)
 abstract class FootballDatabase: RoomDatabase() {
     abstract fun bbcDao(): BbcSportsDao
     abstract fun competitionsDao(): CompetitionsDao
     abstract fun talkSportDao(): TalkSportDao
     abstract fun refreshTimeDao(): LastRefreshTimeDao
+    abstract fun fourFourTwoDao(): FourFourTwoDao
 
     companion object {
         private var INSTANCE: FootballDatabase? = null

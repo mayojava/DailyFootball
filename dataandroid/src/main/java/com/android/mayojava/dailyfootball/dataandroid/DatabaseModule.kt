@@ -13,21 +13,7 @@ import javax.inject.Singleton
 class DatabaseModule {
     @Singleton
     @Provides
-    fun providesDatabase(context: Context): FootballDatabase {
-//        val builder = Room.databaseBuilder(context, FootballDatabase::class.java, "dailyfootball.db")
-//            .fallbackToDestructiveMigration()
-//            .addCallback(object: RoomDatabase.Callback() {
-//                override fun onCreate(db: SupportSQLiteDatabase) {
-//
-//                }
-//            })
-//
-//        if (Debug.isDebuggerConnected()) {
-//            builder.allowMainThreadQueries()
-//        }
-//        return builder.build()
-        return FootballDatabase.getInstance(context)
-    }
+    fun providesDatabase(context: Context): FootballDatabase = FootballDatabase.getInstance(context)
 
     @Provides
     fun providesBbcDao(db: FootballDatabase) = db.bbcDao()
@@ -40,4 +26,7 @@ class DatabaseModule {
 
     @Provides
     fun providesLastRefreshTimeDao(db: FootballDatabase) = db.refreshTimeDao()
+
+    @Provides
+    fun providesFourFourTwoDao(db: FootballDatabase) = db.fourFourTwoDao()
 }

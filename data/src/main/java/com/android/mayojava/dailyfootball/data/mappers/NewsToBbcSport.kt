@@ -8,7 +8,7 @@ object NewsToBbcSport: Mapper<News, List<BbcNewsEntity>> {
         return from.articles.map { it -> BbcNewsEntity(
             author = it.author,
             title = it.title,
-            description = it.description,
+            description = it.description ?: "",
             url = it.url,
             urlToImage = it.urlToImage ?: "",
             publishedAt = it.publishedAt,

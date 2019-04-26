@@ -5,18 +5,19 @@ object Versions {
 
     const val kotlin = "1.3.11"
     const val coreKtx = "1.0.1"
-    const val supportVersion = "1.1.0-alpha01"
+    const val supportVersion = "1.1.0-alpha04"
     const val constraintlayout = "1.1.3"
-    const val navigation = "1.0.0-beta02"
+    const val navigation = "2.1.0-alpha02"
     const val material ="1.0.0"
     const val coroutine = "1.1.0"
     const val arrow = "0.8.1"
     const val dagger = "2.19"
     const val retrofit = "2.5.0"
     const val okHttpLogger  = "3.12.0"
-    const val room  = "2.1.0-alpha04"
-    const val workManager = "1.0.0-beta02"
-    const val lifecycle = "2.0.0"
+    const val room  = "2.1.0-alpha07"
+    const val workManager = "2.1.0-alpha01"
+    const val lifecycle = "2.1.0-alpha04"
+    const val archCore = "2.1.0-alpha02"
     const val paging = "2.1.0-rc01"
     const val rxjava = "2.2.3"
     const val rxandroid = "2.1.0"
@@ -40,7 +41,7 @@ object deps {
 
     object gradle {
         object plugins {
-            const val safeArgs = "android.arch.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+            const val safeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
             const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
             const val androidPlugin = "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
         }
@@ -62,7 +63,7 @@ object deps {
                 const val runtime = "androidx.room:room-runtime:${Versions.room}"
                 const val roomrx = "androidx.room:room-rxjava2:${Versions.room}"
                 const val test = "androidx.room:room-testing:${Versions.room}"
-                const val coroutine = "androidx.room:room-coroutines:${Versions.room}"
+                const val coroutine = "androidx.room:room-ktx:${Versions.room}"
             }
 
             object paging {
@@ -75,20 +76,20 @@ object deps {
                 const val rx = "android.arch.lifecycle:reactivestreams:${Versions.lifecycle}"
                 const val compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
                 const val common = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
-                const val test = "androidx.arch.core:core-testing:${Versions.lifecycle}"
+                const val test = "androidx.arch.core:core-testing:${Versions.archCore}"
             }
 
             object workManager {
-                const val runtime = "android.arch.work:work-runtime-ktx:${Versions.workManager}"
-                const val test = "android.arch.work:work-testing:${Versions.workManager}"
+                const val runtime = "androidx.work:work-runtime-ktx:${Versions.workManager}"
+                const val test = "androidx.work:work-testing:${Versions.workManager}"
             }
         }
 
         object arch {
             object navigation {
-                const val fragment = "android.arch.navigation:navigation-fragment-ktx:${Versions.navigation}"
-                const val ui = "android.arch.navigation:navigation-ui-ktx:${Versions.navigation}"
-                const val testing = "android.arch.navigation:navigation-testing:${Versions.navigation}"
+                const val fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+                const val ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+                const val testing = "androidx.navigation:navigation-testing:${Versions.navigation}"
             }
         }
     }
